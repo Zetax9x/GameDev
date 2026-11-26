@@ -1,0 +1,368 @@
+{
+  "projects": [
+    {
+      "slug": "guess-the-number",
+      "name_it": "Indovina il numero",
+      "name_en": "Guess the Number",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Il primo programma: tentativi, suggerimenti e record salvato su file.",
+      "summary_en": "My first program: guesses, hints and a high score saved to a file.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        2,
+        2
+      ]
+    },
+    {
+      "slug": "tic-tac-toe",
+      "name_it": "Tris",
+      "name_en": "Tic-Tac-Toe",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Tris da console contro il computer.",
+      "summary_en": "Console tic-tac-toe against the computer.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        5,
+        5
+      ]
+    },
+    {
+      "slug": "hangman",
+      "name_it": "Impiccato",
+      "name_en": "Hangman",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Impiccato con parole lette da file.",
+      "summary_en": "Hangman with words loaded from a file.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        8,
+        8
+      ]
+    },
+    {
+      "slug": "text-rpg",
+      "name_it": "Gioco di ruolo testuale",
+      "name_en": "Text RPG",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "OOP"
+      ],
+      "summary_it": "Personaggi come classi, inventario e combattimento a turni.",
+      "summary_en": "Characters as classes, an inventory and turn-based combat.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        11,
+        12
+      ]
+    },
+    {
+      "slug": "console-snake",
+      "name_it": "Snake in console",
+      "name_en": "Console Snake",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Il classico Snake giocabile nel terminale.",
+      "summary_en": "The classic Snake, playable in the terminal.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        15,
+        15
+      ]
+    },
+    {
+      "slug": "vec-math",
+      "name_it": "Libreria matematica Vec/Mat",
+      "name_en": "Vec/Mat math library",
+      "phase_id": "f2",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "Math",
+        "Testing"
+      ],
+      "summary_it": "Vettori e matrici scritti da zero, con test per ogni operazione.",
+      "summary_en": "Vectors and matrices written from scratch, with a test for every operation.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        6,
+        31
+      ]
+    },
+    {
+      "slug": "pong",
+      "name_it": "Pong",
+      "name_en": "Pong",
+      "phase_id": "f3",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib"
+      ],
+      "summary_it": "Ciclo di gioco, input e collisioni: il punto di partenza.",
+      "summary_en": "Game loop, input and collisions: the starting point.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        18,
+        19
+      ]
+    },
+    {
+      "slug": "breakout",
+      "name_it": "Breakout",
+      "name_en": "Breakout",
+      "phase_id": "f3",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib"
+      ],
+      "summary_it": "Livelli letti da file, suoni e punteggio.",
+      "summary_en": "Levels loaded from files, sound and scoring.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        20,
+        21
+      ]
+    },
+    {
+      "slug": "asteroids",
+      "name_it": "Asteroids",
+      "name_en": "Asteroids",
+      "phase_id": "f3",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib",
+        "Math"
+      ],
+      "summary_it": "Rotazioni e vettori con la mia libreria matematica.",
+      "summary_en": "Rotations and vectors using my own math library.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        22,
+        24
+      ]
+    },
+    {
+      "slug": "platformer-2d",
+      "name_it": "Platform 2D",
+      "name_en": "2D Platformer",
+      "phase_id": "f3",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib"
+      ],
+      "summary_it": "Gravità, salto, mappe a tasselli e nemici con macchina a stati.",
+      "summary_en": "Gravity, jumping, tile maps and state-machine enemies.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        25,
+        29
+      ]
+    },
+    {
+      "slug": "top-down-city",
+      "name_it": "Città dall'alto",
+      "name_en": "Top-Down City",
+      "phase_id": "f3",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib",
+        "AI",
+        "A*"
+      ],
+      "summary_it": "Open world 2D visto dall'alto: auto, pedoni, polizia con IA e missioni.",
+      "summary_en": "A top-down 2D open world: cars, pedestrians, AI police and missions.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        32,
+        39
+      ]
+    },
+    {
+      "slug": "opengl-engine",
+      "name_it": "Motore 3D in OpenGL",
+      "name_en": "OpenGL 3D engine",
+      "phase_id": "f4",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "OpenGL",
+        "GLSL"
+      ],
+      "summary_it": "Un piccolo motore 3D: shader, luci, modelli e un'auto in una città di blocchi.",
+      "summary_en": "A small 3D engine: shaders, lighting, models and a car in a block city.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        44,
+        55
+      ]
+    },
+    {
+      "slug": "unreal-chase",
+      "name_it": "Prototipo Unreal: inseguimento",
+      "name_en": "Unreal prototype: police chase",
+      "phase_id": "f4",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "Unreal Engine 5",
+        "AI"
+      ],
+      "summary_it": "Personaggio in terza persona, veicolo e polizia che insegue, con IA in C++.",
+      "summary_en": "Third-person character, a drivable vehicle and a police chase with C++ AI.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        58,
+        69
+      ]
+    },
+    {
+      "slug": "fivem-resource",
+      "name_it": "Risorsa FiveM",
+      "name_en": "FiveM resource",
+      "phase_id": "f5",
+      "status": "planned",
+      "tech": [
+        "Lua",
+        "FiveM"
+      ],
+      "summary_it": "Una risorsa per un server FiveM ospitato sul mio VPS.",
+      "summary_en": "A resource for a FiveM server hosted on my VPS.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        87,
+        88
+      ]
+    },
+    {
+      "slug": "portfolio-1",
+      "name_it": "Progetto portfolio 1",
+      "name_en": "Portfolio project 1",
+      "phase_id": "f5",
+      "status": "planned",
+      "tech": [],
+      "summary_it": "Da definire in base alla specializzazione scelta.",
+      "summary_en": "To be defined based on the chosen specialization.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": true,
+      "weeks": [
+        80,
+        86
+      ]
+    },
+    {
+      "slug": "portfolio-2",
+      "name_it": "Progetto portfolio 2",
+      "name_en": "Portfolio project 2",
+      "phase_id": "f5",
+      "status": "planned",
+      "tech": [],
+      "summary_it": "Da definire in base alla specializzazione scelta.",
+      "summary_en": "To be defined based on the chosen specialization.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": true,
+      "weeks": [
+        89,
+        94
+      ]
+    }
+  ]
+}

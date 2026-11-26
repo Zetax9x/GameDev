@@ -1,0 +1,193 @@
+{
+  "milestones": [
+    {
+      "id": "m01",
+      "title_it": "Ambiente pronto e primo programma su GitHub",
+      "title_en": "Dev environment ready and first program on GitHub",
+      "due_date": "2026-12-13",
+      "phase_id": "f1",
+      "is_public": true,
+      "sort_order": 1
+    },
+    {
+      "id": "m02",
+      "title_it": "Esame CPE superato",
+      "title_en": "CPE exam passed",
+      "due_date": "2027-03-28",
+      "phase_id": "f1",
+      "is_public": true,
+      "sort_order": 2
+    },
+    {
+      "id": "m03",
+      "title_it": "5 progetti da console su GitHub",
+      "title_en": "5 console projects on GitHub",
+      "due_date": "2027-03-28",
+      "phase_id": "f1",
+      "is_public": true,
+      "sort_order": 3
+    },
+    {
+      "id": "m04",
+      "title_it": "CS50x completato fino alla settimana 5",
+      "title_en": "CS50x completed up to week 5",
+      "due_date": "2027-03-28",
+      "phase_id": "f1",
+      "is_public": true,
+      "sort_order": 4
+    },
+    {
+      "id": "m05",
+      "title_it": "Prima game jam completata",
+      "title_en": "First game jam completed",
+      "due_date": "2027-06-27",
+      "phase_id": "f3",
+      "is_public": true,
+      "sort_order": 5
+    },
+    {
+      "id": "m06",
+      "title_it": "Certificato CS50x",
+      "title_en": "CS50x certificate",
+      "due_date": "2027-07-04",
+      "phase_id": "f3",
+      "is_public": true,
+      "sort_order": 6
+    },
+    {
+      "id": "m07",
+      "title_it": "Libreria Vec2, Vec3 e Mat4 con test",
+      "title_en": "Vec2, Vec3 and Mat4 library with tests",
+      "due_date": "2027-08-01",
+      "phase_id": "f2",
+      "is_public": true,
+      "sort_order": 7
+    },
+    {
+      "id": "m08",
+      "title_it": "5 giochi raylib su GitHub e itch.io",
+      "title_en": "5 raylib games on GitHub and itch.io",
+      "due_date": "2027-08-29",
+      "phase_id": "f3",
+      "is_public": true,
+      "sort_order": 8
+    },
+    {
+      "id": "m09",
+      "title_it": "Esame CPA superato",
+      "title_en": "CPA exam passed",
+      "due_date": "2027-09-19",
+      "phase_id": "f3",
+      "is_public": true,
+      "sort_order": 9
+    },
+    {
+      "id": "m10",
+      "title_it": "PC per Unreal Engine pronto",
+      "title_en": "PC for Unreal Engine ready",
+      "due_date": "2027-10-03",
+      "phase_id": "f4",
+      "is_public": false,
+      "sort_order": 10
+    },
+    {
+      "id": "m11",
+      "title_it": "Decisione sulla laurea online",
+      "title_en": "Decision on an online degree",
+      "due_date": "2027-11-28",
+      "phase_id": "f4",
+      "is_public": false,
+      "sort_order": 11
+    },
+    {
+      "id": "m12",
+      "title_it": "Motore OpenGL con video dimostrativo",
+      "title_en": "OpenGL engine with demo video",
+      "due_date": "2027-12-19",
+      "phase_id": "f4",
+      "is_public": true,
+      "sort_order": 12
+    },
+    {
+      "id": "m13",
+      "title_it": "Prototipo Unreal giocabile con video",
+      "title_en": "Playable Unreal prototype with video",
+      "due_date": "2028-03-26",
+      "phase_id": "f4",
+      "is_public": true,
+      "sort_order": 13
+    },
+    {
+      "id": "m14",
+      "title_it": "Specializzazione scelta",
+      "title_en": "Specialization chosen",
+      "due_date": "2028-05-21",
+      "phase_id": "f4",
+      "is_public": true,
+      "sort_order": 14
+    },
+    {
+      "id": "m15",
+      "title_it": "Progetto portfolio 1 con video",
+      "title_en": "Portfolio project 1 with video",
+      "due_date": "2028-07-23",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 15
+    },
+    {
+      "id": "m16",
+      "title_it": "Risorsa FiveM completa",
+      "title_en": "FiveM resource complete",
+      "due_date": "2028-08-06",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 16
+    },
+    {
+      "id": "m17",
+      "title_it": "Progetto portfolio 2 con video",
+      "title_en": "Portfolio project 2 with video",
+      "due_date": "2028-09-17",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 17
+    },
+    {
+      "id": "m18",
+      "title_it": "3 game jam completate",
+      "title_en": "3 game jams completed",
+      "due_date": "2028-09-24",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 18
+    },
+    {
+      "id": "m19",
+      "title_it": "Sito portfolio pronto per le candidature",
+      "title_en": "Portfolio website ready for applications",
+      "due_date": "2028-10-01",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 19
+    },
+    {
+      "id": "m20",
+      "title_it": "CV e LinkedIn in inglese",
+      "title_en": "CV and LinkedIn in English",
+      "due_date": "2028-10-08",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 20
+    },
+    {
+      "id": "m21",
+      "title_it": "Prime candidature inviate",
+      "title_en": "First job applications sent",
+      "due_date": "2028-11-12",
+      "phase_id": "f5",
+      "is_public": true,
+      "sort_order": 21
+    }
+  ]
+}
