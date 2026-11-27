@@ -1,0 +1,10 @@
+---
+import type { GetStaticPaths } from 'astro';
+import PostPage from '../../../components/pages/PostPage.astro';
+import MissingTranslationPage from '../../../components/pages/MissingTranslationPage.astro';
+import { devlogPaths, type DevlogPathProps } from '../../../lib/static-paths';
+
+export const getStaticPaths = (() => devlogPaths('en')) satisfies GetStaticPaths;
+const { post, missing } = Astro.props as DevlogPathProps;
+---
+{missing ? <MissingTranslationPage lang="en" original={post} /> : <PostPage lang="en" post={post} />}

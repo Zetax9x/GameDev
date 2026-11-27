@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PhaseIndicator from '../public/PhaseIndicator.astro';
+import PostCard from '../public/PostCard.astro';
+import ProjectCard from '../public/ProjectCard.astro';
+import { t, path, otherLang, type Lang } from '../../i18n';
+import { getPosts } from '../../lib/devlog';
+import { getHomeProjects, getProjects } from '../../lib/projects';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const posts = (await getPosts(lang)).slice(0, 3);
+let projects = await getHomeProjects();
+// Early on every project is still "planned": show the next ones coming up instead of an empty block.
+if (projects.length === 0) projects = (await getProjects()).slice(0, 3);
+---
+<BaseLayout lang={lang} alternateHref={path(otherLang(lang), 'home')} current="home">
+  <section class="container-site grid gap-10 pt-16 pb-12 md:grid-cols-[1.4fr_1fr] md:items-end md:pt-24">
+    <div>
+      <h1 class="text-2xl md:text-3xl">{t(lang, 'site.name')}</h1>
+      <p class="mt-2 font-display text-lg text-muted">{t(lang, 'site.subtitle')}</p>
+      <p class="mt-6 max-w-xl">{t(lang, 'home.intro')}</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={path(lang, 'devlog')} class="btn btn-primary">{t(lang, 'home.ctaDevlog')}</a>
+        <a href={path(lang, 'roadmap')} class="btn">{t(lang, 'home.ctaRoadmap')}</a>
+      </div>
+    </div>
+    <PhaseIndicator lang={lang} />
+  </section>
+
+  <section class="container-site py-12" aria-labelledby="latest-posts">
+    <div class="mb-6 flex items-baseline justify-between gap-4">
+      <h2 id="latest-posts" class="text-xl">{t(lang, 'home.latestPosts')}</h2>
+      <a href={path(lang, 'devlog')} class="link text-sm">{t(lang, 'home.allPosts')}</a>
+    </div>
+    {posts.length > 0 ? posts.map((post) => <PostCard lang={lang} post={post} />) : <p class="text-muted">{t(lang, 'home.noPosts')}</p>}
+  </section>
+
+  <section class="container-site py-12" aria-labelledby="home-projects">
+    <div class="mb-6 flex items-baseline justify-between gap-4">
+      <h2 id="home-projects" class="text-xl">{t(lang, 'home.featuredProjects')}</h2>
+      <a href={path(lang, 'projects')} class="link text-sm">{t(lang, 'home.allProjects')}</a>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => <ProjectCard lang={lang} project={project} />)}
+    </div>
+    <p class="mt-10">
+      <a href={path(lang, 'roadmap')} class="link">{t(lang, 'home.fullRoadmap')} →</a>
+    </p>
+  </section>
+</BaseLayout>

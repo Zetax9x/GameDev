@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../public/PostCard.astro';
+import { t, path, otherLang, type Lang } from '../../i18n';
+import { allTags, getPosts } from '../../lib/devlog';
+
+interface Props {
+  lang: Lang;
+  /** When set, shows only posts with this tag. */
+  tag?: string | undefined;
+}
+const { lang, tag } = Astro.props;
+const all = await getPosts(lang);
+const tags = allTags(all);
+const posts = tag ? all.filter((p) => p.data.tags.includes(tag)) : all;
+
+// The tag page may not exist in the other language: fall back to its devlog index.
+const otherTags = allTags(await getPosts(otherLang(lang)));
+const alternateHref =
+  tag && otherTags.includes(tag) ? path(otherLang(lang), 'devlog', 'tag', tag) : path(otherLang(lang), 'devlog');
+const title = tag ? `${t(lang, 'devlog.taggedWith')} #${tag}` : t(lang, 'devlog.title');
+---
+<BaseLayout lang={lang} title={title} alternateHref={alternateHref} current="devlog">
+  <div class="container-site pt-16">
+    <h1 class="text-2xl md:text-3xl">{title}</h1>
+    {!tag && <p class="mt-3 max-w-xl text-muted">{t(lang, 'devlog.intro')}</p>}
+
+    {
+      tags.length > 0 && (
+        <nav class="mt-8" aria-label={t(lang, 'devlog.tags')}>
+          <ul class="flex flex-wrap gap-2">
+            <li>
+              <a
+                href={path(lang, 'devlog')}
+                class:list={['pill no-underline', tag ? 'text-muted hover:text-text' : 'status-progress']}
+                aria-current={tag ? undefined : 'page'}
+              >
+                {t(lang, 'devlog.allTags')}
+              </a>
+            </li>
+            {tags.map((name) => (
+              <li>
+                <a
+                  href={path(lang, 'devlog', 'tag', name)}
+                  class:list={['pill no-underline', name === tag ? 'status-progress' : 'text-muted hover:text-text']}
+                  aria-current={name === tag ? 'page' : undefined}
+                >
+                  #{name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
+
+    <div class="mt-10 max-w-3xl">
+      {posts.length > 0 ? posts.map((post) => <PostCard lang={lang} post={post} />) : <p class="text-muted">{t(lang, 'devlog.empty')}</p>}
+    </div>
+  </div>
+</BaseLayout>

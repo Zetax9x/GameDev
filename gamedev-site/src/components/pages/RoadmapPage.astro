@@ -1,0 +1,216 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatusPill from '../public/StatusPill.astro';
+import ProgressLabels from '../public/ProgressLabels.astro';
+import { t, path, otherLang, formatDate, type Lang } from '../../i18n';
+import { currentWeek, phaseTimeState, todayInRome, weekRange, type PhaseTimeState } from '../../lib/plan';
+import { DEFAULT_START_DATE, PHASES, PUBLIC_MILESTONES, phaseName, type Phase } from '../../lib/content-data';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+// Computed at build time from the default start date; statuses are refreshed client-side.
+const week = currentWeek(DEFAULT_START_DATE, todayInRome());
+const mainPhases = PHASES.filter((p) => !p.parallel).sort((a, b) => a.order - b.order);
+const parallelPhases = PHASES.filter((p) => p.parallel);
+
+function dates(phase: Phase): string {
+  if (!phase.weeks) return (lang === 'it' ? phase.label_it : phase.label_en) ?? '';
+  const from = weekRange(DEFAULT_START_DATE, phase.weeks[0]).start;
+  const to = weekRange(DEFAULT_START_DATE, phase.weeks[1]).end;
+  return `${formatDate(lang, from, 'short')} – ${formatDate(lang, to, 'short')}`;
+}
+
+function state(phase: Phase): PhaseTimeState {
+  return phaseTimeState(phase, week);
+}
+
+const stateClass: Record<PhaseTimeState, string> = {
+  past: 'segment-past',
+  current: 'segment-current',
+  future: 'segment-future',
+};
+---
+<BaseLayout lang={lang} title={t(lang, 'roadmap.title')} alternateHref={path(otherLang(lang), 'roadmap')} current="roadmap">
+  <div class="container-site pt-16">
+    <h1 class="text-2xl md:text-3xl">{t(lang, 'roadmap.title')}</h1>
+    <p class="mt-3 max-w-2xl text-muted">{t(lang, 'roadmap.intro')}</p>
+
+    <ol class="road mt-12" data-progress="roadmap">
+      {
+        mainPhases.map((phase) => {
+          const milestones = PUBLIC_MILESTONES.filter((m) => m.phase_id === phase.id);
+          const parallel = parallelPhases.filter(
+            (p) => p.weeks && phase.weeks && p.weeks[0] >= phase.weeks[0] && p.weeks[0] <= phase.weeks[1],
+          );
+          const s = state(phase);
+          return (
+            <li class:list={['segment', stateClass[s]]} aria-current={s === 'current' ? 'step' : undefined}>
+              <span class="segment-dot" aria-hidden="true" />
+              <div class="segment-body">
+                <p class="font-mono text-xs text-muted uppercase">
+                  {t(lang, 'home.phase')} {phase.order}
+                  {phase.weeks && (
+                    <>
+                      {' '}
+                      · {t(lang, 'roadmap.weeksRange')} {phase.weeks[0]}–{phase.weeks[1]}
+                    </>
+                  )}
+                  {' '}
+                  · {dates(phase)}
+                </p>
+                <h2 class="mt-1 text-xl">
+                  {phaseName(phase, lang)}
+                  {s === 'current' && <span class="pill status-progress ml-2 align-middle text-xs">{t(lang, 'roadmap.current')}</span>}
+                </h2>
+                <p class="mt-2 max-w-2xl text-muted">{lang === 'it' ? phase.summary_it : phase.summary_en}</p>
+                {(lang === 'it' ? phase.gate_it : phase.gate_en) && (
+                  <p class="mt-2 text-sm">
+                    <span class="font-mono text-xs text-muted uppercase">{t(lang, 'roadmap.gate')}:</span>{' '}
+                    {lang === 'it' ? phase.gate_it : phase.gate_en}
+                  </p>
+                )}
+
+                {parallel.map((p) => (
+                  <div class:list={['parallel card mt-5 p-4', stateClass[state(p)]]}>
+                    <p class="font-mono text-xs text-muted uppercase">
+                      {t(lang, 'roadmap.parallel')} · {t(lang, 'home.phase')} {p.order} · {t(lang, 'roadmap.weeksRange')}{' '}
+                      {p.weeks?.[0]}–{p.weeks?.[1]} · {dates(p)}
+                    </p>
+                    <h3 class="mt-1 text-lg">{phaseName(p, lang)}</h3>
+                    <p class="mt-1 text-sm text-muted">{lang === 'it' ? p.summary_it : p.summary_en}</p>
+                    {(lang === 'it' ? p.gate_it : p.gate_en) && (
+                      <p class="mt-2 text-sm">
+                        <span class="font-mono text-xs text-muted uppercase">{t(lang, 'roadmap.gate')}:</span>{' '}
+                        {lang === 'it' ? p.gate_it : p.gate_en}
+                      </p>
+                    )}
+                    <ul class="mt-3 space-y-2">
+                      {PUBLIC_MILESTONES.filter((m) => m.phase_id === p.id).map((m) => (
+                        <li class="exit" data-milestone={m.id}>
+                          <span class="exit-sign" aria-hidden="true" />
+                          <span class="flex-1">{lang === 'it' ? m.title_it : m.title_en}</span>
+                          <span class="flex flex-wrap items-center gap-2 font-mono text-xs text-muted">
+                            <span>{t(lang, 'roadmap.due')} {formatDate(lang, m.due_date, 'short')}</span>
+                            <span data-reached hidden>
+                              · {t(lang, 'roadmap.reachedOn')} <span data-reached-value />
+                            </span>
+                            <StatusPill label={t(lang, 'roadmap.status.da_fare')} tone="muted" dataId={m.id} />
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                {milestones.length > 0 && (
+                  <ul class="mt-5 space-y-2" aria-label={t(lang, 'roadmap.milestones')}>
+                    {milestones.map((m) => (
+                      <li class="exit" data-milestone={m.id}>
+                        <span class="exit-sign" aria-hidden="true" />
+                        <span class="flex-1">{lang === 'it' ? m.title_it : m.title_en}</span>
+                        <span class="flex flex-wrap items-center gap-2 font-mono text-xs text-muted">
+                          <span>{t(lang, 'roadmap.due')} {formatDate(lang, m.due_date, 'short')}</span>
+                          <span data-reached hidden>
+                            · {t(lang, 'roadmap.reachedOn')} <span data-reached-value />
+                          </span>
+                          <StatusPill label={t(lang, 'roadmap.status.da_fare')} tone="muted" dataId={m.id} />
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
+
+    <p class="mt-12 text-sm text-muted">{t(lang, 'roadmap.note')}</p>
+  </div>
+  <ProgressLabels lang={lang} />
+</BaseLayout>
+
+<style>
+  /* "Night road": a dashed lane on the left, phases as stretches of road, milestones as exit signs. */
+  .road {
+    position: relative;
+  }
+  .segment {
+    position: relative;
+    padding-left: 2.5rem;
+    padding-bottom: 3rem;
+    --lane: var(--border);
+  }
+  .segment::before {
+    content: '';
+    position: absolute;
+    left: 0.6875rem;
+    top: 0.5rem;
+    bottom: -0.5rem;
+    border-left: 3px dashed var(--lane);
+  }
+  .segment:last-child::before {
+    bottom: 0;
+    border-left-style: dotted;
+  }
+  .segment-dot {
+    position: absolute;
+    left: 0.25rem;
+    top: 0.25rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 3px solid var(--lane);
+  }
+  .segment-past {
+    --lane: var(--accent-2);
+  }
+  .segment-current {
+    --lane: var(--accent);
+  }
+  .segment-current .segment-dot {
+    background: var(--accent);
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--accent) 20%, transparent);
+  }
+  .segment-future .segment-body > h2 {
+    color: var(--text-muted);
+  }
+  .parallel {
+    border-style: dashed;
+    border-color: var(--lane, var(--border));
+    background: transparent;
+  }
+  .exit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+  }
+  .exit-sign {
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: rotate(45deg);
+    border: 2px solid var(--text-muted);
+    border-radius: 2px;
+    flex: none;
+  }
+  .exit[data-state='raggiunto'] .exit-sign {
+    border-color: var(--accent-2);
+    background: var(--accent-2);
+  }
+  .exit[data-state='in_corso'] .exit-sign {
+    border-color: var(--accent);
+  }
+  .exit[data-state='in_ritardo'] .exit-sign {
+    border-color: var(--danger);
+  }
+</style>

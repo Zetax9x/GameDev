@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development (never commit .dev.vars).
+# Lets /api/private/* work locally without Cloudflare Access.
+# Only honoured by the dev server, and only for local/LAN hosts.
+DEV_BYPASS_AUTH=true

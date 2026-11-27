@@ -1,0 +1,26 @@
+---
+// Shown at /<lang>/devlog/<slug>/ when the post exists only in the other language.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { t, path, otherLang, type Lang } from '../../i18n';
+import { postSlug, type Post } from '../../lib/devlog';
+
+interface Props {
+  lang: Lang;
+  original: Post;
+}
+const { lang, original } = Astro.props;
+const other = otherLang(lang);
+const href = path(other, 'devlog', postSlug(original));
+---
+<BaseLayout lang={lang} title={original.data.title} alternateHref={href} current="devlog" noindex>
+  <div class="container-site pt-16">
+    <div class="card max-w-[680px] p-6">
+      <p class="font-mono text-xs text-muted uppercase" lang={other}>{original.data.title}</p>
+      <p class="mt-3 text-lg">{t(lang, 'devlog.missingTranslation')}</p>
+      <p class="mt-4">
+        <a href={href} hreflang={other} class="btn btn-primary">{t(lang, 'devlog.availableIn')}</a>
+      </p>
+    </div>
+    <p class="mt-8"><a href={path(lang, 'devlog')} class="link">← {t(lang, 'devlog.back')}</a></p>
+  </div>
+</BaseLayout>
