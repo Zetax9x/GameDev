@@ -11,10 +11,25 @@ const SITE = process.env.SITE_URL ?? 'https://yuri-gamedev.workers.dev';
 export default defineConfig({
   site: SITE,
   output: 'static',
-  trailingSlash: 'always',
+  trailingSlash: 'ignore',
   // No Astro sessions and no Cloudflare Images binding: nothing extra to provision, nothing billed.
   session: false,
   adapter: cloudflare({ imageService: { build: 'compile', runtime: 'passthrough' } }),
+  // Content-Security-Policy as a <meta> tag with hashes of every script and style Astro emits.
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "img-src 'self' data:",
+        "font-src 'self' data:",
+        "connect-src 'self'",
+        "media-src 'self'",
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+      ],
+    },
+  },
   integrations: [
     react(),
     sitemap({
@@ -23,7 +38,8 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    shikiConfig: { theme: 'github-dark-dimmed' },
+    // Prism uses CSS classes (Shiki's inline styles would be blocked by the CSP).
+    syntaxHighlight: 'prism',
   },
   vite: {
     plugins: [tailwindcss()],

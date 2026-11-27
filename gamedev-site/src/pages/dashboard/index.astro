@@ -1,0 +1,7 @@
+---
+import DashboardLayout from '../../layouts/DashboardLayout.astro';
+import Overview from '../../components/dashboard/Overview';
+---
+<DashboardLayout title="Panoramica" active="panoramica">
+  <Overview client:only="react" />
+</DashboardLayout>

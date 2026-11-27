@@ -8,9 +8,8 @@ export interface MilestoneRow {
   reached_date: string | null;
   is_public: number;
   sort_order: number;
-  // Private fields that must never leak to the public payload:
+  // Private field that must never leak to the public payload:
   notes?: string | null;
-  [key: string]: unknown;
 }
 
 export interface PublicMilestone {

@@ -10,11 +10,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build": "astro build",
-    "preview": "astro build && wrangler dev",
+    "preview": "astro build && wrangler dev --persist-to .wrangler/state",
     "seed:generate": "node scripts/generate-seed.mjs",
     "db:migrate:local": "wrangler d1 migrations apply DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply DB --remote",
-    "cf-typegen": "wrangler types",
+    "cf-typegen": "wrangler types --strict-vars=false",
     "deploy": "astro build && wrangler deploy"
   },
   "dependencies": {

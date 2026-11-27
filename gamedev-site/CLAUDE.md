@@ -55,14 +55,31 @@ Documenti da leggere prima di ogni milestone:
 
 ## Comandi
 
-(Da completare alla Milestone 0, quando il progetto esiste.)
+Tutti da lanciare dentro `gamedev-site/`.
 
-- `npm run dev` — sviluppo locale
+- `npm install` — installa le dipendenze (la prima volta)
+- `npm run db:migrate:local` — crea/aggiorna il database D1 locale (la prima volta e dopo nuove migrazioni)
+- `npm run dev` — sviluppo locale su http://localhost:4321 (dashboard compresa, con `DEV_BYPASS_AUTH=true` in `.dev.vars`)
+- `npm run dev:lan` — come sopra ma raggiungibile dal telefono sulla stessa rete (http://IP-DEL-PORTATILE:4321)
 - `npm run check` — controllo tipi Astro/TypeScript
 - `npm run test` — test Vitest
-- `npm run build` — build di produzione
-- `npm run db:migrate:local` / `npm run db:migrate:remote` — migrazioni D1
-- `npm run deploy` — deploy (solo dopo conferma di Yuri)
+- `npm run build` — build di produzione (output in `dist/`)
+- `npm run preview` — build + Worker locale con Wrangler, identico alla produzione (il bypass NON è attivo: le API private rispondono 401)
+- `npm run seed:generate` — rigenera `migrations/0002_seed.sql` da `data/seed/*.json`
+- `npm run cf-typegen` — rigenera `worker-configuration.d.ts` dopo modifiche a `wrangler.jsonc`
+- `npm run db:migrate:remote` — migrazioni sul D1 remoto (solo dopo conferma di Yuri)
+- `npm run deploy` — build + deploy (solo dopo conferma di Yuri)
+
+## Struttura
+
+- `src/pages/en/*`, `src/pages/it/*` — pagine pubbliche (file sottili che usano `src/components/pages/*`)
+- `src/pages/dashboard/*` — shell statiche dell'area privata; i dati li caricano le isole React in `src/components/dashboard/*`
+- `src/pages/api/public/progress.ts` — unico endpoint pubblico
+- `src/pages/api/private/*` — API private; il controllo del JWT di Access è in `src/middleware.ts`
+- `src/lib/plan.ts` — logica di date e statistiche (testata in `tests/`)
+- `src/lib/server/*` — accesso a D1, autenticazione, helper HTTP (solo lato server)
+- `src/config/site.ts` — link social, email di contatto, CV, frase sul lavoro nel 118
+- `src/i18n/{en,it}.json` — tutti i testi pubblici
 
 ## Dati di Yuri da usare
 

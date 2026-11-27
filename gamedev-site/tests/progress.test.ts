@@ -6,7 +6,7 @@ const milestones: MilestoneRow[] = [
   { id: 'm01', status: 'raggiunto', reached_date: '2026-12-12', is_public: 1, sort_order: 1, notes: 'secret' },
   { id: 'm02', status: 'in_corso', reached_date: null, is_public: 1, sort_order: 2, notes: 'secret' },
   { id: 'm10', status: 'raggiunto', reached_date: '2027-01-01', is_public: 0, sort_order: 10, notes: 'secret' },
-  { id: 'm03', status: 'da_fare', reached_date: '2027-01-01', is_public: 1, sort_order: 3, title_it: 'x' },
+  { id: 'm03', status: 'da_fare', reached_date: '2027-01-01', is_public: 1, sort_order: 3, title_it: 'x' } as MilestoneRow,
 ];
 
 const base = {
