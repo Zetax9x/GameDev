@@ -1,0 +1,49 @@
+---
+import { t, formatDate, type Lang } from '../../i18n';
+import { currentWeek, phaseForWeek, todayInRome, TOTAL_WEEKS } from '../../lib/plan';
+import { DEFAULT_START_DATE, PHASES, PUBLIC_MILESTONES, phaseName } from '../../lib/content-data';
+import ProgressLabels from './ProgressLabels.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+
+// Build-time fallback; the script refreshes it from /api/public/progress.
+const week = currentWeek(DEFAULT_START_DATE, todayInRome());
+const phase = phaseForWeek(PHASES, week);
+const total = PUBLIC_MILESTONES.length;
+---
+<div class="card p-5" data-progress="root">
+  <p class="font-mono text-xs tracking-wider text-muted uppercase">
+    <span data-progress="started" hidden={week === 0}>
+      {t(lang, 'home.week')} <span data-progress="week" class="text-accent">{week}</span> / {TOTAL_WEEKS}
+    </span>
+    <span data-progress="not-started" hidden={week !== 0}>
+      {t(lang, 'home.startsOn')} {formatDate(lang, DEFAULT_START_DATE)}
+    </span>{' '}
+    · {t(lang, 'home.phase')} <span data-progress="phase-order">{phase?.order}</span>
+  </p>
+  <p class="mt-1 font-display text-xl font-semibold" data-progress="phase-name">{phase && phaseName(phase, lang)}</p>
+
+  <div class="mt-4">
+    <div
+      class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"
+      role="progressbar"
+      aria-label={t(lang, 'home.progressLabel')}
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="0"
+    >
+      <div class="h-full w-0 rounded-full bg-accent" data-progress="bar"></div>
+    </div>
+    <p class="mt-2 font-mono text-xs text-muted">
+      <span data-progress="reached">0</span> / <span data-progress="total">{total}</span>{' '}
+      {t(lang, 'home.milestonesReached')}
+      <span data-progress="hours-box" hidden>
+        · <span data-progress="hours"></span> {t(lang, 'home.hoursStudied')}
+      </span>
+    </p>
+  </div>
+</div>
+<ProgressLabels lang={lang} />

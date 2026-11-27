@@ -1,0 +1,735 @@
+{
+  "_note": "Le date non vanno salvate nel database: inizio settimana n = start_date + 7*(n-1). Le date qui sono solo un riferimento con start_date 2026-11-30.",
+  "start_date": "2026-11-30",
+  "weekly_target_hours": 22,
+  "weeks": [
+    {
+      "n": 1,
+      "phase_id": "f1",
+      "goal": "Ambiente pronto (Visual Studio, GitHub, VPS); CS50x lezione 0 e Problem Set 0",
+      "ref_start": "2026-11-30",
+      "ref_end": "2026-12-06"
+    },
+    {
+      "n": 2,
+      "phase_id": "f1",
+      "goal": "CS50x lezione 1 e Problem Set 1; learncpp cap. 1–4; progetto «Indovina il numero»",
+      "ref_start": "2026-12-07",
+      "ref_end": "2026-12-13"
+    },
+    {
+      "n": 3,
+      "phase_id": "f1",
+      "goal": "C++ Essentials 1, modulo 2; learncpp cap. 5–6; primi 3 esercizi su Exercism",
+      "ref_start": "2026-12-14",
+      "ref_end": "2026-12-20"
+    },
+    {
+      "n": 4,
+      "phase_id": "f1",
+      "goal": "CS50x lezione 2 (array); learncpp cap. 7",
+      "ref_start": "2026-12-21",
+      "ref_end": "2026-12-27"
+    },
+    {
+      "n": 5,
+      "phase_id": "f1",
+      "goal": "CS50x Problem Set 2; learncpp cap. 8; progetto «Tris»",
+      "ref_start": "2026-12-28",
+      "ref_end": "2027-01-03"
+    },
+    {
+      "n": 6,
+      "phase_id": "f1",
+      "goal": "CS50x lezione 3 (algoritmi); matematica: ripasso trigonometria su Khan Academy",
+      "ref_start": "2027-01-04",
+      "ref_end": "2027-01-10"
+    },
+    {
+      "n": 7,
+      "phase_id": "f1",
+      "goal": "CS50x Problem Set 3; learncpp cap. 9–10",
+      "ref_start": "2027-01-11",
+      "ref_end": "2027-01-17"
+    },
+    {
+      "n": 8,
+      "phase_id": "f1",
+      "goal": "C++ Essentials 1, modulo 3; progetto «Impiccato»; matematica: radianti, seno e coseno",
+      "ref_start": "2027-01-18",
+      "ref_end": "2027-01-24"
+    },
+    {
+      "n": 9,
+      "phase_id": "f1",
+      "goal": "CS50x lezione 4 (memoria); learncpp cap. 11; matematica: vettori",
+      "ref_start": "2027-01-25",
+      "ref_end": "2027-01-31"
+    },
+    {
+      "n": 10,
+      "phase_id": "f1",
+      "goal": "CS50x Problem Set 4; learncpp cap. 12 (riferimenti e puntatori)",
+      "ref_start": "2027-02-01",
+      "ref_end": "2027-02-07"
+    },
+    {
+      "n": 11,
+      "phase_id": "f1",
+      "goal": "learncpp cap. 13–14 (struct e classi); gioco di ruolo testuale, parte 1",
+      "ref_start": "2027-02-08",
+      "ref_end": "2027-02-14"
+    },
+    {
+      "n": 12,
+      "phase_id": "f1",
+      "goal": "learncpp cap. 15; gioco di ruolo testuale, parte 2 (inventario e combattimento)",
+      "ref_start": "2027-02-15",
+      "ref_end": "2027-02-21"
+    },
+    {
+      "n": 13,
+      "phase_id": "f1",
+      "goal": "CS50x lezione 5 (strutture dati); matematica: prodotto scalare",
+      "ref_start": "2027-02-22",
+      "ref_end": "2027-02-28"
+    },
+    {
+      "n": 14,
+      "phase_id": "f1",
+      "goal": "CS50x Problem Set 5; C++ Essentials 1, modulo 4; matematica: prodotto vettoriale",
+      "ref_start": "2027-03-01",
+      "ref_end": "2027-03-07"
+    },
+    {
+      "n": 15,
+      "phase_id": "f1",
+      "goal": "learncpp cap. 16 (std::vector); progetto «Snake» in console",
+      "ref_start": "2027-03-08",
+      "ref_end": "2027-03-14"
+    },
+    {
+      "n": 16,
+      "phase_id": "f1",
+      "goal": "C++ Essentials 1, test finale; ripasso per l’esame CPE; primi video di 3Blue1Brown",
+      "ref_start": "2027-03-15",
+      "ref_end": "2027-03-21"
+    },
+    {
+      "n": 17,
+      "phase_id": "f1",
+      "goal": "Esame CPE; README dei 5 progetti; revisione della Fase 1",
+      "ref_start": "2027-03-22",
+      "ref_end": "2027-03-28"
+    },
+    {
+      "n": 18,
+      "phase_id": "f3",
+      "goal": "raylib: installazione ed esempi; Pong, parte 1; matematica: matrici 2D",
+      "ref_start": "2027-03-29",
+      "ref_end": "2027-04-04"
+    },
+    {
+      "n": 19,
+      "phase_id": "f3",
+      "goal": "Pong completo su GitHub e itch.io; C++ Essentials 2, modulo 1",
+      "ref_start": "2027-04-05",
+      "ref_end": "2027-04-11"
+    },
+    {
+      "n": 20,
+      "phase_id": "f3",
+      "goal": "Breakout, parte 1 (mattoni e collisioni); CS50x settimana 6",
+      "ref_start": "2027-04-12",
+      "ref_end": "2027-04-18"
+    },
+    {
+      "n": 21,
+      "phase_id": "f3",
+      "goal": "Breakout completo (livelli da file, suoni); matematica: matrici 4×4",
+      "ref_start": "2027-04-19",
+      "ref_end": "2027-04-25"
+    },
+    {
+      "n": 22,
+      "phase_id": "f3",
+      "goal": "Asteroids, parte 1 (navicella e rotazioni con Vec2); CS50x settimana 7",
+      "ref_start": "2027-04-26",
+      "ref_end": "2027-05-02"
+    },
+    {
+      "n": 23,
+      "phase_id": "f3",
+      "goal": "Asteroids, parte 2 (asteroidi che si dividono, bordi dello schermo)",
+      "ref_start": "2027-05-03",
+      "ref_end": "2027-05-09"
+    },
+    {
+      "n": 24,
+      "phase_id": "f3",
+      "goal": "Asteroids completo; Game Programming Patterns (Game Loop, Update Method); learncpp cap. 17–18",
+      "ref_start": "2027-05-10",
+      "ref_end": "2027-05-16"
+    },
+    {
+      "n": 25,
+      "phase_id": "f3",
+      "goal": "Platform 2D: gravità e salto; CS50x settimana 8",
+      "ref_start": "2027-05-17",
+      "ref_end": "2027-05-23"
+    },
+    {
+      "n": 26,
+      "phase_id": "f3",
+      "goal": "Platform 2D: mappa a tasselli e telecamera; matematica: 3D Math Primer, capitoli sui vettori",
+      "ref_start": "2027-05-24",
+      "ref_end": "2027-05-30"
+    },
+    {
+      "n": 27,
+      "phase_id": "f3",
+      "goal": "Platform 2D: nemici con macchina a stati (pattern State); CS50x settimana 9",
+      "ref_start": "2027-05-31",
+      "ref_end": "2027-06-06"
+    },
+    {
+      "n": 28,
+      "phase_id": "f3",
+      "goal": "Platform 2D: livelli, menu e suoni",
+      "ref_start": "2027-06-07",
+      "ref_end": "2027-06-13"
+    },
+    {
+      "n": 29,
+      "phase_id": "f3",
+      "goal": "Platform 2D completo, anche come progetto finale di CS50x",
+      "ref_start": "2027-06-14",
+      "ref_end": "2027-06-20"
+    },
+    {
+      "n": 30,
+      "phase_id": "f3",
+      "goal": "Prima game jam online su itch.io",
+      "ref_start": "2027-06-21",
+      "ref_end": "2027-06-27"
+    },
+    {
+      "n": 31,
+      "phase_id": "f3",
+      "goal": "CMake e compilazione sul VPS; libreria Vec2/Vec3/Mat4 con test completi",
+      "ref_start": "2027-06-28",
+      "ref_end": "2027-07-04"
+    },
+    {
+      "n": 32,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: progetto su carta, auto con fisica semplice; learncpp cap. 19–20",
+      "ref_start": "2027-07-05",
+      "ref_end": "2027-07-11"
+    },
+    {
+      "n": 33,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: città a tasselli e telecamera; C++ Essentials 2, modulo 2",
+      "ref_start": "2027-07-12",
+      "ref_end": "2027-07-18"
+    },
+    {
+      "n": 34,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: pedoni che camminano; matematica: interpolazione (lerp)",
+      "ref_start": "2027-07-19",
+      "ref_end": "2027-07-25"
+    },
+    {
+      "n": 35,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: ricerca del percorso A*; matematica: quaternioni (fine Fase 2)",
+      "ref_start": "2027-07-26",
+      "ref_end": "2027-08-01"
+    },
+    {
+      "n": 36,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: polizia con IA e livello di ricercato",
+      "ref_start": "2027-08-02",
+      "ref_end": "2027-08-08"
+    },
+    {
+      "n": 37,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: missioni",
+      "ref_start": "2027-08-09",
+      "ref_end": "2027-08-15"
+    },
+    {
+      "n": 38,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: interfaccia, suoni e menu; C++ Essentials 2, modulo 3; learncpp cap. 26 (template)",
+      "ref_start": "2027-08-16",
+      "ref_end": "2027-08-22"
+    },
+    {
+      "n": 39,
+      "phase_id": "f3",
+      "goal": "Città dall’alto: rifinitura, video di 60 secondi, pubblicazione",
+      "ref_start": "2027-08-23",
+      "ref_end": "2027-08-29"
+    },
+    {
+      "n": 40,
+      "phase_id": "f3",
+      "goal": "learncpp cap. 21–22 (operatori, move semantics, smart pointer); C++ Essentials 2, test finale",
+      "ref_start": "2027-08-30",
+      "ref_end": "2027-09-05"
+    },
+    {
+      "n": 41,
+      "phase_id": "f3",
+      "goal": "Ripasso per l’esame CPA; learncpp cap. 23–25 (ereditarietà, funzioni virtuali)",
+      "ref_start": "2027-09-06",
+      "ref_end": "2027-09-12"
+    },
+    {
+      "n": 42,
+      "phase_id": "f3",
+      "goal": "Esame CPA",
+      "ref_start": "2027-09-13",
+      "ref_end": "2027-09-19"
+    },
+    {
+      "n": 43,
+      "phase_id": "f3",
+      "goal": "README e GIF di tutti i giochi; revisione della Fase 3; scelta del PC per Unreal",
+      "ref_start": "2027-09-20",
+      "ref_end": "2027-09-26"
+    },
+    {
+      "n": 44,
+      "phase_id": "f4",
+      "goal": "PC nuovo pronto; LearnOpenGL: finestra e primo triangolo",
+      "ref_start": "2027-09-27",
+      "ref_end": "2027-10-03"
+    },
+    {
+      "n": 45,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: shader",
+      "ref_start": "2027-10-04",
+      "ref_end": "2027-10-10"
+    },
+    {
+      "n": 46,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: texture e trasformazioni (con la tua Mat4)",
+      "ref_start": "2027-10-11",
+      "ref_end": "2027-10-17"
+    },
+    {
+      "n": 47,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: sistemi di coordinate e telecamera",
+      "ref_start": "2027-10-18",
+      "ref_end": "2027-10-24"
+    },
+    {
+      "n": 48,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: luci (colori, modello di Phong)",
+      "ref_start": "2027-10-25",
+      "ref_end": "2027-10-31"
+    },
+    {
+      "n": 49,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: materiali e mappe di luce; primi passi con RenderDoc",
+      "ref_start": "2027-11-01",
+      "ref_end": "2027-11-07"
+    },
+    {
+      "n": 50,
+      "phase_id": "f4",
+      "goal": "LearnOpenGL: caricamento di modelli 3D",
+      "ref_start": "2027-11-08",
+      "ref_end": "2027-11-14"
+    },
+    {
+      "n": 51,
+      "phase_id": "f4",
+      "goal": "Motore: struttura del progetto, ciclo di gioco, input",
+      "ref_start": "2027-11-15",
+      "ref_end": "2027-11-21"
+    },
+    {
+      "n": 52,
+      "phase_id": "f4",
+      "goal": "Motore: città a blocchi e auto guidabile; decisione sulla laurea online",
+      "ref_start": "2027-11-22",
+      "ref_end": "2027-11-28"
+    },
+    {
+      "n": 53,
+      "phase_id": "f4",
+      "goal": "Motore: telecamera che segue l’auto, collisioni di base",
+      "ref_start": "2027-11-29",
+      "ref_end": "2027-12-05"
+    },
+    {
+      "n": 54,
+      "phase_id": "f4",
+      "goal": "Motore: profilazione e ottimizzazione",
+      "ref_start": "2027-12-06",
+      "ref_end": "2027-12-12"
+    },
+    {
+      "n": 55,
+      "phase_id": "f4",
+      "goal": "Motore: video dimostrativo e README",
+      "ref_start": "2027-12-13",
+      "ref_end": "2027-12-19"
+    },
+    {
+      "n": 56,
+      "phase_id": "f4",
+      "goal": "Pausa o ripasso leggero",
+      "ref_start": "2027-12-20",
+      "ref_end": "2027-12-26"
+    },
+    {
+      "n": 57,
+      "phase_id": "f4",
+      "goal": "Algoritmi: complessità, array, tabelle hash",
+      "ref_start": "2027-12-27",
+      "ref_end": "2028-01-02"
+    },
+    {
+      "n": 58,
+      "phase_id": "f4",
+      "goal": "Unreal: installazione, editor, primo progetto C++ (Epic Developer Community)",
+      "ref_start": "2028-01-03",
+      "ref_end": "2028-01-09"
+    },
+    {
+      "n": 59,
+      "phase_id": "f4",
+      "goal": "Unreal: classi C++ (Actor, Component) e Blueprint di base",
+      "ref_start": "2028-01-10",
+      "ref_end": "2028-01-16"
+    },
+    {
+      "n": 60,
+      "phase_id": "f4",
+      "goal": "Unreal: personaggio in terza persona in C++",
+      "ref_start": "2028-01-17",
+      "ref_end": "2028-01-23"
+    },
+    {
+      "n": 61,
+      "phase_id": "f4",
+      "goal": "Unreal: input e telecamera",
+      "ref_start": "2028-01-24",
+      "ref_end": "2028-01-30"
+    },
+    {
+      "n": 62,
+      "phase_id": "f4",
+      "goal": "Unreal: veicolo guidabile",
+      "ref_start": "2028-01-31",
+      "ref_end": "2028-02-06"
+    },
+    {
+      "n": 63,
+      "phase_id": "f4",
+      "goal": "Unreal: salire e scendere dall’auto",
+      "ref_start": "2028-02-07",
+      "ref_end": "2028-02-13"
+    },
+    {
+      "n": 64,
+      "phase_id": "f4",
+      "goal": "Unreal: IA con Behavior Tree e Blackboard",
+      "ref_start": "2028-02-14",
+      "ref_end": "2028-02-20"
+    },
+    {
+      "n": 65,
+      "phase_id": "f4",
+      "goal": "Unreal: polizia che insegue, IA in C++",
+      "ref_start": "2028-02-21",
+      "ref_end": "2028-02-27"
+    },
+    {
+      "n": 66,
+      "phase_id": "f4",
+      "goal": "Unreal: navigazione e percezione dei nemici",
+      "ref_start": "2028-02-28",
+      "ref_end": "2028-03-05"
+    },
+    {
+      "n": 67,
+      "phase_id": "f4",
+      "goal": "Unreal: interfaccia e livello di ricercato",
+      "ref_start": "2028-03-06",
+      "ref_end": "2028-03-12"
+    },
+    {
+      "n": 68,
+      "phase_id": "f4",
+      "goal": "Unreal: suoni, effetti e rifinitura",
+      "ref_start": "2028-03-13",
+      "ref_end": "2028-03-19"
+    },
+    {
+      "n": 69,
+      "phase_id": "f4",
+      "goal": "Unreal: prototipo giocabile e video",
+      "ref_start": "2028-03-20",
+      "ref_end": "2028-03-26"
+    },
+    {
+      "n": 70,
+      "phase_id": "f4",
+      "goal": "Algoritmi: alberi e grafi",
+      "ref_start": "2028-03-27",
+      "ref_end": "2028-04-02"
+    },
+    {
+      "n": 71,
+      "phase_id": "f4",
+      "goal": "Algoritmi: esercizi da colloquio (LeetCode livello medio)",
+      "ref_start": "2028-04-03",
+      "ref_end": "2028-04-09"
+    },
+    {
+      "n": 72,
+      "phase_id": "f4",
+      "goal": "Game Engine Architecture: capitoli sulla memoria",
+      "ref_start": "2028-04-10",
+      "ref_end": "2028-04-16"
+    },
+    {
+      "n": 73,
+      "phase_id": "f4",
+      "goal": "Multithreading di base in C++",
+      "ref_start": "2028-04-17",
+      "ref_end": "2028-04-23"
+    },
+    {
+      "n": 74,
+      "phase_id": "f4",
+      "goal": "Cache della CPU e data-oriented design",
+      "ref_start": "2028-04-24",
+      "ref_end": "2028-04-30"
+    },
+    {
+      "n": 75,
+      "phase_id": "f4",
+      "goal": "Seconda game jam",
+      "ref_start": "2028-05-01",
+      "ref_end": "2028-05-07"
+    },
+    {
+      "n": 76,
+      "phase_id": "f4",
+      "goal": "Rifinitura del motore OpenGL e del prototipo Unreal",
+      "ref_start": "2028-05-08",
+      "ref_end": "2028-05-14"
+    },
+    {
+      "n": 77,
+      "phase_id": "f4",
+      "goal": "Scelta della specializzazione (gameplay e IA, rete, motore, interfaccia)",
+      "ref_start": "2028-05-15",
+      "ref_end": "2028-05-21"
+    },
+    {
+      "n": 78,
+      "phase_id": "f4",
+      "goal": "Revisione della Fase 4: video e README",
+      "ref_start": "2028-05-22",
+      "ref_end": "2028-05-28"
+    },
+    {
+      "n": 79,
+      "phase_id": "f5",
+      "goal": "Teoria della specializzazione scelta",
+      "ref_start": "2028-05-29",
+      "ref_end": "2028-06-04"
+    },
+    {
+      "n": 80,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: progettazione e prototipo",
+      "ref_start": "2028-06-05",
+      "ref_end": "2028-06-11"
+    },
+    {
+      "n": 81,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: sviluppo",
+      "ref_start": "2028-06-12",
+      "ref_end": "2028-06-18"
+    },
+    {
+      "n": 82,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: sviluppo",
+      "ref_start": "2028-06-19",
+      "ref_end": "2028-06-25"
+    },
+    {
+      "n": 83,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: sviluppo",
+      "ref_start": "2028-06-26",
+      "ref_end": "2028-07-02"
+    },
+    {
+      "n": 84,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: sviluppo",
+      "ref_start": "2028-07-03",
+      "ref_end": "2028-07-09"
+    },
+    {
+      "n": 85,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: sviluppo",
+      "ref_start": "2028-07-10",
+      "ref_end": "2028-07-16"
+    },
+    {
+      "n": 86,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 1: rifinitura e video",
+      "ref_start": "2028-07-17",
+      "ref_end": "2028-07-23"
+    },
+    {
+      "n": 87,
+      "phase_id": "f5",
+      "goal": "Server FiveM sul VPS e prima risorsa",
+      "ref_start": "2028-07-24",
+      "ref_end": "2028-07-30"
+    },
+    {
+      "n": 88,
+      "phase_id": "f5",
+      "goal": "FiveM: risorsa completa (missione o sistema)",
+      "ref_start": "2028-07-31",
+      "ref_end": "2028-08-06"
+    },
+    {
+      "n": 89,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: progettazione e prototipo",
+      "ref_start": "2028-08-07",
+      "ref_end": "2028-08-13"
+    },
+    {
+      "n": 90,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: sviluppo",
+      "ref_start": "2028-08-14",
+      "ref_end": "2028-08-20"
+    },
+    {
+      "n": 91,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: sviluppo",
+      "ref_start": "2028-08-21",
+      "ref_end": "2028-08-27"
+    },
+    {
+      "n": 92,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: sviluppo",
+      "ref_start": "2028-08-28",
+      "ref_end": "2028-09-03"
+    },
+    {
+      "n": 93,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: sviluppo",
+      "ref_start": "2028-09-04",
+      "ref_end": "2028-09-10"
+    },
+    {
+      "n": 94,
+      "phase_id": "f5",
+      "goal": "Progetto portfolio 2: rifinitura e video",
+      "ref_start": "2028-09-11",
+      "ref_end": "2028-09-17"
+    },
+    {
+      "n": 95,
+      "phase_id": "f5",
+      "goal": "Terza game jam",
+      "ref_start": "2028-09-18",
+      "ref_end": "2028-09-24"
+    },
+    {
+      "n": 96,
+      "phase_id": "f5",
+      "goal": "Sito portfolio: rifinitura per le candidature (dominio personale facoltativo)",
+      "ref_start": "2028-09-25",
+      "ref_end": "2028-10-01"
+    },
+    {
+      "n": 97,
+      "phase_id": "f5",
+      "goal": "CV in inglese e profilo LinkedIn",
+      "ref_start": "2028-10-02",
+      "ref_end": "2028-10-08"
+    },
+    {
+      "n": 98,
+      "phase_id": "f5",
+      "goal": "Algoritmi: ripasso per i colloqui tecnici",
+      "ref_start": "2028-10-09",
+      "ref_end": "2028-10-15"
+    },
+    {
+      "n": 99,
+      "phase_id": "f5",
+      "goal": "Progetto 3, oppure miglioramento dei primi due",
+      "ref_start": "2028-10-16",
+      "ref_end": "2028-10-22"
+    },
+    {
+      "n": 100,
+      "phase_id": "f5",
+      "goal": "Progetto 3, oppure miglioramento dei primi due",
+      "ref_start": "2028-10-23",
+      "ref_end": "2028-10-29"
+    },
+    {
+      "n": 101,
+      "phase_id": "f5",
+      "goal": "GitHub in ordine: README, GIF, istruzioni per compilare",
+      "ref_start": "2028-10-30",
+      "ref_end": "2028-11-05"
+    },
+    {
+      "n": 102,
+      "phase_id": "f5",
+      "goal": "Prime candidature: studi italiani ed europei",
+      "ref_start": "2028-11-06",
+      "ref_end": "2028-11-12"
+    },
+    {
+      "n": 103,
+      "phase_id": "f5",
+      "goal": "Candidature e simulazioni di colloquio tecnico",
+      "ref_start": "2028-11-13",
+      "ref_end": "2028-11-19"
+    },
+    {
+      "n": 104,
+      "phase_id": "f5",
+      "goal": "Revisione del percorso e piano per il primo lavoro",
+      "ref_start": "2028-11-20",
+      "ref_end": "2028-11-26"
+    }
+  ]
+}

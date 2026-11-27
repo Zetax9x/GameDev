@@ -1,0 +1,27 @@
+---
+// The address is never in the HTML as plain text: it's assembled in the browser on click.
+interface Props {
+  user: string;
+  domain: string;
+  label: string;
+}
+const { user, domain, label } = Astro.props;
+const encode = (s: string) => [...s].reverse().join('');
+---
+<button type="button" class="email-reveal link cursor-pointer" data-u={encode(user)} data-d={encode(domain)}>
+  {label}
+</button>
+<script>
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('.email-reveal')) {
+    btn.addEventListener('click', () => {
+      const decode = (s: string | undefined) => [...(s ?? '')].reverse().join('');
+      const address = `${decode(btn.dataset.u)}@${decode(btn.dataset.d)}`;
+      const link = document.createElement('a');
+      link.href = `mailto:${address}`;
+      link.textContent = address;
+      link.className = 'link';
+      btn.replaceWith(link);
+      link.focus();
+    });
+  }
+</script>

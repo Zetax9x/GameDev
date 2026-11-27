@@ -1,0 +1,19 @@
+---
+import { t, otherLang, type Lang } from '../../i18n';
+
+interface Props {
+  lang: Lang;
+  href: string;
+}
+const { lang, href } = Astro.props;
+const target = otherLang(lang);
+---
+<a
+  href={href}
+  hreflang={target}
+  lang={target}
+  class="inline-flex h-11 items-center rounded-full border border-border px-3 font-mono text-xs text-muted no-underline transition-colors hover:text-text"
+  aria-label={t(lang, 'lang.switchLabel')}
+>
+  {target.toUpperCase()}
+</a>

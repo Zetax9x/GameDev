@@ -1,0 +1,16 @@
+---
+import { SITE_CONFIG } from '../config/site';
+
+const links = [
+  { label: 'GitHub', href: SITE_CONFIG.links.github },
+  { label: 'itch.io', href: SITE_CONFIG.links.itch },
+  { label: 'LinkedIn', href: SITE_CONFIG.links.linkedin },
+].filter((l): l is { label: string; href: string } => Boolean(l.href));
+---
+{
+  links.map((l) => (
+    <a href={l.href} class="link" rel="me noopener" target="_blank">
+      {l.label}
+    </a>
+  ))
+}

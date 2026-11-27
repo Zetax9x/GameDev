@@ -1,0 +1,48 @@
+---
+import { t, path, type Lang } from '../../i18n';
+import { projectName, projectSummary, type Project } from '../../lib/projects';
+import { phaseById, phaseName } from '../../lib/content-data';
+import StatusPill from './StatusPill.astro';
+import ProjectPlaceholder from './ProjectPlaceholder.astro';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+const { lang, project } = Astro.props;
+const d = project.data;
+const name = projectName(project, lang);
+const phase = phaseById(d.phase_id);
+const tone = d.status === 'done' ? 'done' : d.status === 'in_progress' ? 'progress' : 'muted';
+---
+<article class="card group flex flex-col overflow-hidden" data-status={d.status} data-phase={d.phase_id}>
+  <div class="aspect-video overflow-hidden border-b border-border">
+    {
+      d.cover ? (
+        <img src={d.cover} alt={`${t(lang, 'projects.coverAlt')} ${name}`} loading="lazy" class="h-full w-full object-cover" />
+      ) : (
+        <ProjectPlaceholder name={name} seed={d.slug} alt={`${t(lang, 'projects.placeholderAlt')} ${name}`} />
+      )
+    }
+  </div>
+  <div class="flex flex-1 flex-col gap-3 p-5">
+    <div class="flex flex-wrap items-center gap-2">
+      <StatusPill label={t(lang, `projects.status.${d.status}`)} tone={tone} />
+      {phase && <span class="font-mono text-xs text-muted">{t(lang, 'home.phase')} {phase.order}</span>}
+    </div>
+    <h3 class="text-lg">
+      <a href={path(lang, 'projects', d.slug)} class="no-underline after:absolute after:inset-0 group-hover:text-accent">
+        {name}
+      </a>
+    </h3>
+    <p class="text-sm text-muted">{projectSummary(project, lang)}</p>
+    {d.tech.length > 0 && <p class="mt-auto font-mono text-xs text-muted">{d.tech.join(' · ')}</p>}
+    {phase && <span class="sr-only">{phaseName(phase, lang)}</span>}
+  </div>
+</article>
+
+<style>
+  article {
+    position: relative;
+  }
+</style>

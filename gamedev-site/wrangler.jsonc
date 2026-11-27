@@ -1,0 +1,28 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Worker name: the public URL will be <name>.<account>.workers.dev
+  "name": "yuri-gamedev",
+  "main": "@astrojs/cloudflare/entrypoints/server",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  // Preview URLs would expose private routes on an address not covered by Access.
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "yuri-gamedev-db",
+      "database_id": "a1af41a1-771f-4bd0-ab15-a44739aefd45",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // Filled in at Milestone 5 (Cloudflare Access application).
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": ""
+  }
+}

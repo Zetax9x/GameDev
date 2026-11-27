@@ -1,0 +1,9 @@
+---
+import type { GetStaticPaths } from 'astro';
+import DevlogIndexPage from '../../../../components/pages/DevlogIndexPage.astro';
+import { tagPaths } from '../../../../lib/static-paths';
+
+export const getStaticPaths = (() => tagPaths('it')) satisfies GetStaticPaths;
+const { tag } = Astro.props as { tag: string };
+---
+<DevlogIndexPage lang="it" tag={tag} />

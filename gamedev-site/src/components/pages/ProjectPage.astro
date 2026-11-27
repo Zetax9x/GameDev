@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StatusPill from '../public/StatusPill.astro';
+import ProjectPlaceholder from '../public/ProjectPlaceholder.astro';
+import PostCard from '../public/PostCard.astro';
+import { t, path, otherLang, formatDate, type Lang } from '../../i18n';
+import { projectName, projectSummary, type Project } from '../../lib/projects';
+import { getPosts } from '../../lib/devlog';
+import { DEFAULT_START_DATE, phaseById, phaseName } from '../../lib/content-data';
+import { weekRange } from '../../lib/plan';
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+const { lang, project } = Astro.props;
+const d = project.data;
+const name = projectName(project, lang);
+const phase = phaseById(d.phase_id);
+const tone = d.status === 'done' ? 'done' : d.status === 'in_progress' ? 'progress' : 'muted';
+const posts = (await getPosts(lang)).filter((p) => p.data.project === d.slug);
+const learned = lang === 'it' ? d.learned_it : d.learned_en;
+const from = weekRange(DEFAULT_START_DATE, d.weeks[0]).start;
+const to = weekRange(DEFAULT_START_DATE, d.weeks[1]).end;
+const isVideoFile = d.video ? /\.(mp4|webm)$/i.test(d.video) : false;
+---
+<BaseLayout
+  lang={lang}
+  title={name}
+  description={projectSummary(project, lang)}
+  alternateHref={path(otherLang(lang), 'projects', d.slug)}
+  current="projects"
+>
+  <article class="container-site pt-16">
+    <header class="max-w-3xl">
+      <div class="flex flex-wrap items-center gap-3">
+        <StatusPill label={t(lang, `projects.status.${d.status}`)} tone={tone} />
+        {phase && <span class="font-mono text-xs text-muted">{t(lang, 'home.phase')} {phase.order} · {phaseName(phase, lang)}</span>}
+      </div>
+      <h1 class="mt-3 text-2xl md:text-3xl">{name}</h1>
+      <p class="mt-3 text-lg text-muted">{projectSummary(project, lang)}</p>
+    </header>
+
+    <div class="card mt-10 aspect-video max-w-3xl overflow-hidden">
+      {
+        d.video && isVideoFile ? (
+          <video src={d.video} controls muted playsinline preload="metadata" class="h-full w-full object-cover" />
+        ) : d.cover ? (
+          <img src={d.cover} alt={`${t(lang, 'projects.coverAlt')} ${name}`} class="h-full w-full object-cover" />
+        ) : (
+          <ProjectPlaceholder name={name} seed={d.slug} alt={`${t(lang, 'projects.placeholderAlt')} ${name}`} />
+        )
+      }
+    </div>
+
+    <dl class="mt-8 grid max-w-3xl gap-4 sm:grid-cols-2">
+      <div>
+        <dt class="text-sm text-muted">{t(lang, 'projects.tech')}</dt>
+        <dd class="font-mono text-sm">{d.tech.length > 0 ? d.tech.join(' · ') : '—'}</dd>
+      </div>
+      <div>
+        <dt class="text-sm text-muted">{t(lang, 'projects.weeks')}</dt>
+        <dd class="font-mono text-sm">
+          {d.weeks[0] === d.weeks[1] ? d.weeks[0] : `${d.weeks[0]}–${d.weeks[1]}`} · {formatDate(lang, from, 'short')} – {formatDate(lang, to, 'short')}
+        </dd>
+      </div>
+    </dl>
+
+    {
+      (d.github || d.itch || (d.video && !isVideoFile)) && (
+        <p class="mt-8 flex flex-wrap gap-3">
+          {d.github && <a href={d.github} class="btn" rel="noopener" target="_blank">{t(lang, 'projects.github')}</a>}
+          {d.itch && <a href={d.itch} class="btn btn-primary" rel="noopener" target="_blank">{t(lang, 'projects.itch')}</a>}
+          {d.video && !isVideoFile && <a href={d.video} class="btn" rel="noopener" target="_blank">{t(lang, 'projects.video')}</a>}
+        </p>
+      )
+    }
+
+    {
+      d.screenshots.length > 0 && (
+        <div class="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+          {d.screenshots.map((src, i) => (
+            <img src={src} alt={`${t(lang, 'projects.coverAlt')} ${name} (${i + 1})`} loading="lazy" class="card w-full" />
+          ))}
+        </div>
+      )
+    }
+
+    <section class="mt-12 max-w-3xl" aria-labelledby="learned">
+      <h2 id="learned" class="text-xl">{t(lang, 'projects.learned')}</h2>
+      <p class:list={['mt-3', !learned && 'text-muted']}>{learned ?? t(lang, 'projects.learnedPending')}</p>
+    </section>
+
+    <section class="mt-12 max-w-3xl" aria-labelledby="related">
+      <h2 id="related" class="mb-4 text-xl">{t(lang, 'projects.relatedPosts')}</h2>
+      {posts.length > 0 ? posts.map((post) => <PostCard lang={lang} post={post} />) : <p class="text-muted">{t(lang, 'projects.noRelatedPosts')}</p>}
+    </section>
+
+    <p class="mt-12"><a href={path(lang, 'projects')} class="link">← {t(lang, 'projects.back')}</a></p>
+  </article>
+</BaseLayout>

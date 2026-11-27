@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string;
+  tone: 'muted' | 'progress' | 'done' | 'late';
+  /** Optional hook for client-side updates (roadmap milestones). */
+  dataId?: string | undefined;
+}
+const { label, tone, dataId } = Astro.props;
+const toneClass = { muted: 'status-muted', progress: 'status-progress', done: 'status-done', late: 'status-late' }[tone];
+---
+<span class:list={['pill', toneClass]} data-status-for={dataId}>
+  <span class="inline-block h-1.5 w-1.5 rounded-full bg-current" aria-hidden="true"></span>
+  <span class="status-label">{label}</span>
+</span>

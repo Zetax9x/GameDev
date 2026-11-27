@@ -1,0 +1,48 @@
+---
+// Geometric placeholder art for projects without a screenshot (no stock photos).
+interface Props {
+  name: string;
+  seed: string;
+  alt: string;
+}
+const { name, seed, alt } = Astro.props;
+
+// Deterministic pseudo-random numbers from the slug, so every project gets its own shapes.
+let h = 0;
+for (const ch of seed) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+const rand = () => {
+  h = (h * 1103515245 + 12345) >>> 0;
+  return (h % 1000) / 1000;
+};
+const shapes = Array.from({ length: 5 }, (_, i) => ({
+  x: 20 + rand() * 280,
+  y: 20 + rand() * 120,
+  size: 14 + rand() * 40,
+  kind: i % 3,
+  rot: Math.round(rand() * 90),
+}));
+---
+<svg viewBox="0 0 320 180" role="img" aria-label={alt} class="block h-full w-full">
+  <rect width="320" height="180" fill="var(--surface-2)"></rect>
+  <path d="M-10 170 C 90 140, 200 150, 330 100" fill="none" stroke="var(--border)" stroke-width="2" stroke-dasharray="10 8"></path>
+  {
+    shapes.map((s) =>
+      s.kind === 0 ? (
+        <circle cx={s.x} cy={s.y} r={s.size / 2} fill="none" stroke="var(--text-muted)" stroke-opacity="0.35" stroke-width="2" />
+      ) : s.kind === 1 ? (
+        <rect
+          x={s.x}
+          y={s.y}
+          width={s.size}
+          height={s.size}
+          rx="4"
+          fill="var(--border)"
+          transform={`rotate(${s.rot} ${s.x + s.size / 2} ${s.y + s.size / 2})`}
+        />
+      ) : (
+        <path d={`M${s.x} ${s.y + s.size} L${s.x + s.size / 2} ${s.y} L${s.x + s.size} ${s.y + s.size} Z`} fill="none" stroke="var(--accent-2)" stroke-opacity="0.45" stroke-width="2" />
+      ),
+    )
+  }
+  <text x="20" y="160" fill="var(--text)" font-family="Space Grotesk, sans-serif" font-weight="600" font-size="20">{name}</text>
+</svg>

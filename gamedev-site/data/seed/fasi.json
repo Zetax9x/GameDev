@@ -1,0 +1,107 @@
+{
+  "phases": [
+    {
+      "id": "f1",
+      "order": 1,
+      "name_it": "Fondamenti e C++",
+      "name_en": "Foundations and C++",
+      "weeks": [
+        1,
+        17
+      ],
+      "parallel": false,
+      "summary_it": "CS50x, learncpp, C++ Essentials 1 e cinque giochi da console.",
+      "summary_en": "CS50x, learncpp, C++ Essentials 1 and five console games.",
+      "gate_it": "Esame CPE superato e 5 progetti su GitHub",
+      "gate_en": "CPE exam passed and 5 projects on GitHub"
+    },
+    {
+      "id": "f2",
+      "order": 2,
+      "name_it": "Matematica per i giochi",
+      "name_en": "Math for games",
+      "weeks": [
+        6,
+        35
+      ],
+      "parallel": true,
+      "summary_it": "Trigonometria, vettori, matrici, quaternioni e basi di fisica, 30 minuti al giorno accanto al C++.",
+      "summary_en": "Trigonometry, vectors, matrices, quaternions and basic physics, 30 minutes a day alongside C++.",
+      "gate_it": "Libreria Vec2, Vec3 e Mat4 con test",
+      "gate_en": "Vec2, Vec3 and Mat4 library with tests"
+    },
+    {
+      "id": "f3",
+      "order": 3,
+      "name_it": "Giochi 2D in C++ con raylib",
+      "name_en": "2D games in C++ with raylib",
+      "weeks": [
+        18,
+        43
+      ],
+      "parallel": false,
+      "summary_it": "Pong, Breakout, Asteroids, un platform e un open world 2D visto dall'alto.",
+      "summary_en": "Pong, Breakout, Asteroids, a platformer and a top-down 2D open world.",
+      "gate_it": "5 giochi pubblicati, esame CPA, prima game jam",
+      "gate_en": "5 games released, CPA exam, first game jam"
+    },
+    {
+      "id": "f4",
+      "order": 4,
+      "name_it": "3D, OpenGL e Unreal Engine",
+      "name_en": "3D, OpenGL and Unreal Engine",
+      "weeks": [
+        44,
+        78
+      ],
+      "parallel": false,
+      "summary_it": "Un piccolo motore 3D in OpenGL e un prototipo in Unreal Engine scritto in C++.",
+      "summary_en": "A small 3D engine in OpenGL and an Unreal Engine prototype written in C++.",
+      "gate_it": "Video del motore e prototipo Unreal giocabile",
+      "gate_en": "Engine demo video and playable Unreal prototype"
+    },
+    {
+      "id": "f5",
+      "order": 5,
+      "name_it": "Specializzazione e portfolio",
+      "name_en": "Specialization and portfolio",
+      "weeks": [
+        79,
+        104
+      ],
+      "parallel": false,
+      "summary_it": "Due o tre progetti rifiniti nella specializzazione scelta, CV in inglese e prime candidature.",
+      "summary_en": "Two or three polished projects in the chosen specialization, an English CV and first applications.",
+      "gate_it": "Portfolio pronto, prime candidature",
+      "gate_en": "Portfolio ready, first applications"
+    },
+    {
+      "id": "f6",
+      "order": 6,
+      "name_it": "Primo lavoro nel settore",
+      "name_en": "First industry job",
+      "weeks": null,
+      "parallel": false,
+      "label_it": "2029–2030",
+      "label_en": "2029–2030",
+      "summary_it": "Due o tre anni in uno studio italiano o europeo, su un gioco vero.",
+      "summary_en": "Two or three years at an Italian or European studio, on a real game.",
+      "gate_it": "Almeno un gioco pubblicato nel curriculum",
+      "gate_en": "At least one shipped game on my CV"
+    },
+    {
+      "id": "f7",
+      "order": 7,
+      "name_it": "Rockstar Games",
+      "name_en": "Rockstar Games",
+      "weeks": null,
+      "parallel": false,
+      "label_it": "Dal 2030 circa",
+      "label_en": "From around 2030",
+      "summary_it": "Candidatura a ruoli Associate o intermedi, con trasferimento all'estero.",
+      "summary_en": "Applying for Associate or mid-level roles, relocating abroad.",
+      "gate_it": null,
+      "gate_en": null
+    }
+  ]
+}

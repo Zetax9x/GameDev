@@ -1,0 +1,92 @@
+---
+import { t, path, type Lang, type Section } from '../../i18n';
+import ThemeToggle from './ThemeToggle.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Lang;
+  alternateHref: string;
+  current?: Section | undefined;
+}
+const { lang, alternateHref, current } = Astro.props;
+
+const items: { section: Section; key: Parameters<typeof t>[1] }[] = [
+  { section: 'devlog', key: 'nav.devlog' },
+  { section: 'projects', key: 'nav.projects' },
+  { section: 'roadmap', key: 'nav.roadmap' },
+  { section: 'about', key: 'nav.about' },
+];
+---
+<header class="border-b border-border">
+  <div class="container-site flex h-16 items-center justify-between gap-4">
+    <a href={path(lang, 'home')} class="font-display text-lg font-semibold no-underline">
+      {t(lang, 'site.name')}
+    </a>
+
+    <nav aria-label={t(lang, 'nav.label')} class="hidden md:block">
+      <ul class="flex items-center gap-1">
+        {
+          items.map((item) => (
+            <li>
+              <a
+                href={path(lang, item.section)}
+                aria-current={current === item.section ? 'page' : undefined}
+                class:list={[
+                  'rounded-full px-3 py-2 no-underline transition-colors hover:text-text',
+                  current === item.section ? 'text-text' : 'text-muted',
+                ]}
+              >
+                {t(lang, item.key)}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <LanguageSwitcher lang={lang} href={alternateHref} />
+      <ThemeToggle label={t(lang, 'theme.toggle')} />
+
+      <!-- Mobile menu: <details> works without JavaScript and with the keyboard. -->
+      <details class="mobile-menu relative md:hidden">
+        <summary
+          class="inline-flex h-11 cursor-pointer list-none items-center rounded-full border border-border px-3 text-sm text-muted"
+        >
+          {t(lang, 'nav.menu')}
+        </summary>
+        <nav
+          aria-label={t(lang, 'nav.label')}
+          class="card absolute right-0 z-20 mt-2 w-56 p-2"
+        >
+          <ul>
+            <li>
+              <a href={path(lang, 'home')} class="block rounded-lg px-3 py-3 no-underline hover:bg-surface-2">
+                {t(lang, 'nav.home')}
+              </a>
+            </li>
+            {
+              items.map((item) => (
+                <li>
+                  <a
+                    href={path(lang, item.section)}
+                    aria-current={current === item.section ? 'page' : undefined}
+                    class="block rounded-lg px-3 py-3 no-underline hover:bg-surface-2"
+                  >
+                    {t(lang, item.key)}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<style>
+  .mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

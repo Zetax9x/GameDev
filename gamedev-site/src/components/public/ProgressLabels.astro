@@ -1,0 +1,22 @@
+---
+// Public labels used by the progress script to update texts in the page language.
+import { t, type Lang } from '../../i18n';
+import { PHASES, phaseName } from '../../lib/content-data';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const labels: Record<string, string> = {};
+for (const p of PHASES) {
+  labels[`phase.${p.id}`] = phaseName(p, lang);
+  labels[`order.${p.id}`] = String(p.order);
+}
+for (const s of ['da_fare', 'in_corso', 'raggiunto', 'in_ritardo'] as const) {
+  labels[`status.${s}`] = t(lang, `roadmap.status.${s}`);
+}
+---
+<script type="application/json" id="progress-labels" set:html={JSON.stringify(labels)} />
+<script>
+  import '../../scripts/public-progress';
+</script>

@@ -1,0 +1,7 @@
+---
+import DashboardLayout from '../../../layouts/DashboardLayout.astro';
+import SettingsPage from '../../../components/dashboard/SettingsPage';
+---
+<DashboardLayout title="Impostazioni" active="impostazioni">
+  <SettingsPage client:only="react" />
+</DashboardLayout>

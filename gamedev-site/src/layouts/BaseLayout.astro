@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+import { t, otherLang, type Lang, type Section } from '../i18n';
+import ThemeScript from '../components/layout/ThemeScript.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+interface Props {
+  lang: Lang;
+  title?: string | undefined;
+  description?: string | undefined;
+  /** Path of the equivalent page in the other language. */
+  alternateHref: string;
+  /** Set to false when the other language has no equivalent (e.g. untranslated post). */
+  hasAlternate?: boolean;
+  current?: Section | undefined;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+}
+
+const {
+  lang,
+  title,
+  description = t(lang, 'site.description'),
+  alternateHref,
+  hasAlternate = true,
+  current,
+  ogType = 'website',
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${t(lang, 'site.name')}` : t(lang, 'site.title');
+const site = Astro.site ?? new URL('https://example.com');
+const canonical = new URL(Astro.url.pathname, site).href;
+const alternate = new URL(alternateHref, site).href;
+const other = otherLang(lang);
+const ogImage = new URL(`/og/default-${lang}.png`, site).href;
+const enHref = lang === 'en' ? canonical : alternate;
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang} href={canonical} />
+    {hasAlternate && <link rel="alternate" hreflang={other} href={alternate} />}
+    {hasAlternate && <link rel="alternate" hreflang="x-default" href={enHref} />}
+    <link rel="alternate" type="application/rss+xml" title={t(lang, 'rss.title')} href={`/${lang}/rss.xml`} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#0E0F12" />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={lang === 'it' ? 'it_IT' : 'en_GB'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <ThemeScript />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-on-accent"
+    >
+      {t(lang, 'nav.skip')}
+    </a>
+    <Header lang={lang} alternateHref={alternateHref} current={current} />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>
