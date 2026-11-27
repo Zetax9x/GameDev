@@ -16,8 +16,7 @@
     {
       "binding": "DB",
       "database_name": "yuri-gamedev-db",
-      // Replace with the real id after `npx wrangler d1 create yuri-gamedev-db` (Milestone 5).
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "a1af41a1-771f-4bd0-ab15-a44739aefd45",
       "migrations_dir": "migrations"
     }
   ],
