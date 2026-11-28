@@ -52,6 +52,11 @@ describe('parseSessionsCsv', () => {
     expect(rows[2]?.value?.minutes).toBe(90);
   });
 
+  it('maps the new plan categories', () => {
+    const { rows } = parseSessionsCsv('data,minuti,categoria\n2026-12-01,60,Unreal Engine\n2026-12-01,30,Collasso\n2026-12-01,30,English\n');
+    expect(rows.map((r) => r.value?.category)).toEqual(['unreal', 'godot', 'inglese']);
+  });
+
   it('rejects files without the required columns', () => {
     expect(parseSessionsCsv('foo,bar\n1,2').error).toBeDefined();
   });

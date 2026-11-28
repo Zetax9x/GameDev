@@ -1,6 +1,28 @@
 {
   "projects": [
     {
+      "slug": "character-status-system",
+      "name_it": "Character Status System",
+      "name_en": "Character Status System",
+      "phase_id": "f1",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Programma da terminale per vedere e modificare salute, energia, munizioni, esperienza e denaro di un personaggio.",
+      "summary_en": "A terminal program to view and change a character's health, energy, ammo, experience and money.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        1,
+        4
+      ]
+    },
+    {
       "slug": "guess-the-number",
       "name_it": "Indovina il numero",
       "name_en": "Guess the Number",
@@ -67,17 +89,17 @@
       ]
     },
     {
-      "slug": "text-rpg",
-      "name_it": "Gioco di ruolo testuale",
-      "name_en": "Text RPG",
+      "slug": "inventory-system",
+      "name_it": "Inventory System",
+      "name_en": "Inventory System",
       "phase_id": "f1",
       "status": "planned",
       "tech": [
         "C++",
-        "OOP"
+        "STL"
       ],
-      "summary_it": "Personaggi come classi, inventario e combattimento a turni.",
-      "summary_en": "Characters as classes, an inventory and turn-based combat.",
+      "summary_it": "Inventario da terminale con oggetti e quantità: aggiunta, rimozione e ricerca, su più file.",
+      "summary_en": "A terminal inventory with items and quantities: add, remove and search, split across files.",
       "github": null,
       "itch": null,
       "video": null,
@@ -85,30 +107,8 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        11,
-        12
-      ]
-    },
-    {
-      "slug": "console-snake",
-      "name_it": "Snake in console",
-      "name_en": "Console Snake",
-      "phase_id": "f1",
-      "status": "planned",
-      "tech": [
-        "C++"
-      ],
-      "summary_it": "Il classico Snake giocabile nel terminale.",
-      "summary_en": "The classic Snake, playable in the terminal.",
-      "github": null,
-      "itch": null,
-      "video": null,
-      "cover": null,
-      "featured": false,
-      "hidden": false,
-      "weeks": [
-        15,
-        15
+        6,
+        9
       ]
     },
     {
@@ -132,21 +132,44 @@
       "hidden": false,
       "weeks": [
         6,
-        31
+        35
       ]
     },
     {
-      "slug": "pong",
-      "name_it": "Pong",
-      "name_en": "Pong",
+      "slug": "combat-system",
+      "name_it": "Combat System",
+      "name_en": "Combat System",
       "phase_id": "f3",
       "status": "planned",
       "tech": [
         "C++",
-        "raylib"
+        "OOP"
       ],
-      "summary_it": "Ciclo di gioco, input e collisioni: il punto di partenza.",
-      "summary_en": "Game loop, input and collisions: the starting point.",
+      "summary_it": "Combattimento a turni tra personaggio e nemici, con classi distinte per personaggio, arma, inventario e nemico.",
+      "summary_en": "Turn-based combat between a character and enemies, with separate classes for character, weapon, inventory and enemy.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        10,
+        13
+      ]
+    },
+    {
+      "slug": "game-data-manager",
+      "name_it": "Game Data Manager",
+      "name_en": "Game Data Manager",
+      "phase_id": "f4",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "STL"
+      ],
+      "summary_it": "Gestione di personaggi, oggetti, nemici e statistiche con contenitori e algoritmi della libreria standard.",
+      "summary_en": "Managing characters, items, enemies and stats with standard library containers and algorithms.",
       "github": null,
       "itch": null,
       "video": null,
@@ -155,14 +178,130 @@
       "hidden": false,
       "weeks": [
         18,
-        19
+        22
+      ]
+    },
+    {
+      "slug": "console-snake",
+      "name_it": "Snake in console",
+      "name_en": "Console Snake",
+      "phase_id": "f4",
+      "status": "planned",
+      "tech": [
+        "C++"
+      ],
+      "summary_it": "Il classico Snake giocabile nel terminale.",
+      "summary_en": "The classic Snake, playable in the terminal.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        20,
+        20
+      ]
+    },
+    {
+      "slug": "enemy-ai-simulator",
+      "name_it": "Enemy AI Simulator",
+      "name_en": "Enemy AI Simulator",
+      "phase_id": "f4",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "AI",
+        "FSM"
+      ],
+      "summary_it": "Simulazione testuale di nemici con stati Idle, Patrol, Chase e Attack.",
+      "summary_en": "A text simulation of enemies with Idle, Patrol, Chase and Attack states.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        23,
+        26
+      ]
+    },
+    {
+      "slug": "unreal-gameplay-prototype",
+      "name_it": "Prototipo di gameplay in Unreal",
+      "name_en": "Unreal gameplay prototype",
+      "phase_id": "f5",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "Unreal Engine 5"
+      ],
+      "summary_it": "Personaggio controllabile, interazioni, armi con munizioni e un nemico con IA a stati: il nucleo del gameplay in C++.",
+      "summary_en": "A controllable character, interactions, weapons with ammo and a state-driven AI enemy: core gameplay in C++.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        27,
+        43
+      ]
+    },
+    {
+      "slug": "unreal-portfolio",
+      "name_it": "Progetto portfolio in Unreal",
+      "name_en": "Unreal portfolio project",
+      "phase_id": "f7",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "Unreal Engine 5",
+        "AI"
+      ],
+      "summary_it": "Un gioco breve ma completo: movimento, interazioni, salute, un'arma, un nemico con IA e un obiettivo chiaro.",
+      "summary_en": "A short but complete game: movement, interactions, health, a weapon, an AI enemy and a clear goal.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        44,
+        52
+      ]
+    },
+    {
+      "slug": "pong",
+      "name_it": "Pong",
+      "name_en": "Pong",
+      "phase_id": "f8",
+      "status": "planned",
+      "tech": [
+        "C++",
+        "raylib"
+      ],
+      "summary_it": "Ciclo di gioco, input e collisioni: il punto di partenza senza motore.",
+      "summary_en": "Game loop, input and collisions: the starting point without an engine.",
+      "github": null,
+      "itch": null,
+      "video": null,
+      "cover": null,
+      "featured": false,
+      "hidden": false,
+      "weeks": [
+        54,
+        55
       ]
     },
     {
       "slug": "breakout",
       "name_it": "Breakout",
       "name_en": "Breakout",
-      "phase_id": "f3",
+      "phase_id": "f8",
       "status": "planned",
       "tech": [
         "C++",
@@ -177,15 +316,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        20,
-        21
+        56,
+        56
       ]
     },
     {
       "slug": "asteroids",
       "name_it": "Asteroids",
       "name_en": "Asteroids",
-      "phase_id": "f3",
+      "phase_id": "f8",
       "status": "planned",
       "tech": [
         "C++",
@@ -201,15 +340,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        22,
-        24
+        57,
+        58
       ]
     },
     {
       "slug": "platformer-2d",
       "name_it": "Platform 2D",
       "name_en": "2D Platformer",
-      "phase_id": "f3",
+      "phase_id": "f8",
       "status": "planned",
       "tech": [
         "C++",
@@ -224,15 +363,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        25,
-        29
+        59,
+        60
       ]
     },
     {
       "slug": "top-down-city",
       "name_it": "Città dall'alto",
       "name_en": "Top-Down City",
-      "phase_id": "f3",
+      "phase_id": "f8",
       "status": "planned",
       "tech": [
         "C++",
@@ -249,15 +388,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        32,
-        39
+        62,
+        65
       ]
     },
     {
       "slug": "opengl-engine",
       "name_it": "Motore 3D in OpenGL",
       "name_en": "OpenGL 3D engine",
-      "phase_id": "f4",
+      "phase_id": "f9",
       "status": "planned",
       "tech": [
         "C++",
@@ -273,15 +412,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        44,
-        55
+        66,
+        71
       ]
     },
     {
       "slug": "unreal-chase",
       "name_it": "Prototipo Unreal: inseguimento",
       "name_en": "Unreal prototype: police chase",
-      "phase_id": "f4",
+      "phase_id": "f10",
       "status": "planned",
       "tech": [
         "C++",
@@ -297,15 +436,15 @@
       "featured": false,
       "hidden": false,
       "weeks": [
-        58,
-        69
+        80,
+        86
       ]
     },
     {
       "slug": "fivem-resource",
       "name_it": "Risorsa FiveM",
       "name_en": "FiveM resource",
-      "phase_id": "f5",
+      "phase_id": "f10",
       "status": "planned",
       "tech": [
         "Lua",
@@ -325,30 +464,10 @@
       ]
     },
     {
-      "slug": "portfolio-1",
-      "name_it": "Progetto portfolio 1",
-      "name_en": "Portfolio project 1",
-      "phase_id": "f5",
-      "status": "planned",
-      "tech": [],
-      "summary_it": "Da definire in base alla specializzazione scelta.",
-      "summary_en": "To be defined based on the chosen specialization.",
-      "github": null,
-      "itch": null,
-      "video": null,
-      "cover": null,
-      "featured": false,
-      "hidden": true,
-      "weeks": [
-        80,
-        86
-      ]
-    },
-    {
       "slug": "portfolio-2",
       "name_it": "Progetto portfolio 2",
       "name_en": "Portfolio project 2",
-      "phase_id": "f5",
+      "phase_id": "f10",
       "status": "planned",
       "tech": [],
       "summary_it": "Da definire in base alla specializzazione scelta.",

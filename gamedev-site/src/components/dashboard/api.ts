@@ -39,6 +39,7 @@ export const api = {
   post: <T>(url: string, body: unknown) => request<T>('POST', url, body),
   postCsv: <T>(url: string, csv: string) => request<T>('POST', url, csv, true),
   patch: <T>(url: string, body: unknown) => request<T>('PATCH', url, body),
+  put: <T>(url: string, body: unknown) => request<T>('PUT', url, body),
   del: <T>(url: string) => request<T>('DELETE', url),
 };
 

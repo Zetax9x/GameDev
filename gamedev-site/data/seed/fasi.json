@@ -3,17 +3,17 @@
     {
       "id": "f1",
       "order": 1,
-      "name_it": "Fondamenti e C++",
-      "name_en": "Foundations and C++",
+      "name_it": "Fondamenti del C++",
+      "name_en": "C++ fundamentals",
       "weeks": [
         1,
-        17
+        9
       ],
       "parallel": false,
-      "summary_it": "CS50x, learncpp, C++ Essentials 1 e cinque giochi da console.",
-      "summary_en": "CS50x, learncpp, C++ Essentials 1 and five console games.",
-      "gate_it": "Esame CPE superato e 5 progetti su GitHub",
-      "gate_en": "CPE exam passed and 5 projects on GitHub"
+      "summary_it": "Programmi da terminale scritti da zero: variabili, condizioni, cicli, funzioni, vector, struct e più file.",
+      "summary_en": "Terminal programs written from scratch: variables, conditions, loops, functions, vectors, structs and multiple files.",
+      "gate_it": "Character Status System e Inventory System su GitHub",
+      "gate_en": "Character Status System and Inventory System on GitHub"
     },
     {
       "id": "f2",
@@ -25,59 +25,134 @@
         35
       ],
       "parallel": true,
-      "summary_it": "Trigonometria, vettori, matrici, quaternioni e basi di fisica, 30 minuti al giorno accanto al C++.",
-      "summary_en": "Trigonometry, vectors, matrices, quaternions and basic physics, 30 minutes a day alongside C++.",
+      "summary_it": "Trigonometria, vettori, matrici e quaternioni, 30 minuti al giorno accanto al C++.",
+      "summary_en": "Trigonometry, vectors, matrices and quaternions, 30 minutes a day alongside C++.",
       "gate_it": "Libreria Vec2, Vec3 e Mat4 con test",
       "gate_en": "Vec2, Vec3 and Mat4 library with tests"
     },
     {
       "id": "f3",
       "order": 3,
-      "name_it": "Giochi 2D in C++ con raylib",
-      "name_en": "2D games in C++ with raylib",
+      "name_it": "C++ intermedio e programmazione a oggetti",
+      "name_en": "Intermediate C++ and OOP",
       "weeks": [
-        18,
-        43
+        10,
+        17
       ],
       "parallel": false,
-      "summary_it": "Pong, Breakout, Asteroids, un platform e un open world 2D visto dall'alto.",
-      "summary_en": "Pong, Breakout, Asteroids, a platformer and a top-down 2D open world.",
-      "gate_it": "5 giochi pubblicati, esame CPA, prima game jam",
-      "gate_en": "5 games released, CPA exam, first game jam"
+      "summary_it": "Classi, incapsulamento e composizione; puntatori, riferimenti, lifetime, smart pointer e RAII.",
+      "summary_en": "Classes, encapsulation and composition; pointers, references, lifetimes, smart pointers and RAII.",
+      "gate_it": "Combat System a classi e verifica sulla gestione della memoria",
+      "gate_en": "Class-based Combat System and a memory management check"
     },
     {
       "id": "f4",
       "order": 4,
-      "name_it": "3D, OpenGL e Unreal Engine",
-      "name_en": "3D, OpenGL and Unreal Engine",
+      "name_it": "C++ moderno e strumenti",
+      "name_en": "Modern C++ and tools",
       "weeks": [
-        44,
-        78
+        18,
+        26
       ],
       "parallel": false,
-      "summary_it": "Un piccolo motore 3D in OpenGL e un prototipo in Unreal Engine scritto in C++.",
-      "summary_en": "A small 3D engine in OpenGL and an Unreal Engine prototype written in C++.",
-      "gate_it": "Video del motore e prototipo Unreal giocabile",
-      "gate_en": "Engine demo video and playable Unreal prototype"
+      "summary_it": "STL, algoritmi e lambda, debugger; complessità, vettori, delta time e macchine a stati.",
+      "summary_en": "STL, algorithms and lambdas, the debugger; complexity, vectors, delta time and state machines.",
+      "gate_it": "Game Data Manager ed Enemy AI Simulator",
+      "gate_en": "Game Data Manager and Enemy AI Simulator"
     },
     {
       "id": "f5",
       "order": 5,
-      "name_it": "Specializzazione e portfolio",
-      "name_en": "Specialization and portfolio",
+      "name_it": "Unreal Engine 5 e gameplay programming",
+      "name_en": "Unreal Engine 5 and gameplay programming",
+      "weeks": [
+        27,
+        35
+      ],
+      "parallel": false,
+      "summary_it": "Actor, Component e reflection; personaggio, Enhanced Input, camera, collisioni e interazioni in C++.",
+      "summary_en": "Actors, components and reflection; character, Enhanced Input, camera, collisions and interactions in C++.",
+      "gate_it": "Gameplay Prototype 1 giocabile",
+      "gate_en": "Playable Gameplay Prototype 1"
+    },
+    {
+      "id": "f6",
+      "order": 6,
+      "name_it": "Sistemi di gameplay",
+      "name_en": "Gameplay systems",
+      "weeks": [
+        36,
+        43
+      ],
+      "parallel": false,
+      "summary_it": "Combattimento, armi e inventario estendibili; nemici con Behavior Tree, percezione e stati.",
+      "summary_en": "Extensible combat, weapons and inventory; enemies with Behavior Trees, perception and states.",
+      "gate_it": "Due armi e un nemico che pattuglia, insegue e attacca",
+      "gate_en": "Two weapons and an enemy that patrols, chases and attacks"
+    },
+    {
+      "id": "f7",
+      "order": 7,
+      "name_it": "Progetto, ottimizzazione e portfolio",
+      "name_en": "Project, optimization and portfolio",
+      "weeks": [
+        44,
+        52
+      ],
+      "parallel": false,
+      "summary_it": "Profiling, rifinitura e documentazione; un progetto piccolo ma completo e dimostrabile.",
+      "summary_en": "Profiling, polish and documentation; a small but complete, demonstrable project.",
+      "gate_it": "Progetto portfolio con README in inglese e video",
+      "gate_en": "Portfolio project with an English README and video"
+    },
+    {
+      "id": "f8",
+      "order": 8,
+      "name_it": "Approfondimento: giochi 2D con raylib",
+      "name_en": "Deep dive: 2D games with raylib",
+      "weeks": [
+        53,
+        65
+      ],
+      "parallel": false,
+      "summary_it": "Pong, Breakout, Asteroids, un platform e una città 2D vista dall'alto, in C++ senza motore.",
+      "summary_en": "Pong, Breakout, Asteroids, a platformer and a top-down 2D city, in C++ without an engine.",
+      "gate_it": "5 giochi pubblicati e prima game jam",
+      "gate_en": "5 games released and a first game jam"
+    },
+    {
+      "id": "f9",
+      "order": 9,
+      "name_it": "Grafica 3D in OpenGL e C++ avanzato",
+      "name_en": "3D graphics in OpenGL and advanced C++",
+      "weeks": [
+        66,
+        78
+      ],
+      "parallel": false,
+      "summary_it": "Un piccolo motore 3D in OpenGL; move semantics, template, algoritmi, memoria e multithreading.",
+      "summary_en": "A small 3D engine in OpenGL; move semantics, templates, algorithms, memory and multithreading.",
+      "gate_it": "Video del motore e specializzazione scelta",
+      "gate_en": "Engine demo video and a chosen specialization"
+    },
+    {
+      "id": "f10",
+      "order": 10,
+      "name_it": "Specializzazione, portfolio e candidature",
+      "name_en": "Specialization, portfolio and applications",
       "weeks": [
         79,
         104
       ],
       "parallel": false,
-      "summary_it": "Due o tre progetti rifiniti nella specializzazione scelta, CV in inglese e prime candidature.",
-      "summary_en": "Two or three polished projects in the chosen specialization, an English CV and first applications.",
+      "summary_it": "Progetti rifiniti nella specializzazione scelta, CV in inglese, colloqui di prova e prime candidature.",
+      "summary_en": "Polished projects in the chosen specialization, an English CV, mock interviews and first applications.",
       "gate_it": "Portfolio pronto, prime candidature",
       "gate_en": "Portfolio ready, first applications"
     },
     {
-      "id": "f6",
-      "order": 6,
+      "id": "f11",
+      "order": 11,
       "name_it": "Primo lavoro nel settore",
       "name_en": "First industry job",
       "weeks": null,
@@ -90,8 +165,8 @@
       "gate_en": "At least one shipped game on my CV"
     },
     {
-      "id": "f7",
-      "order": 7,
+      "id": "f12",
+      "order": 12,
       "name_it": "Rockstar Games",
       "name_en": "Rockstar Games",
       "weeks": null,

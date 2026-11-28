@@ -7,7 +7,8 @@ Documenti da leggere prima di ogni milestone:
 - `docs/SPEC.md` — cosa costruire, modello dati, API, sicurezza, milestone
 - `docs/DESIGN.md` — stile grafico
 - `docs/CONTENUTI.md` — testi e tono
-- `data/seed/` — dati iniziali (settimane, traguardi, fasi, progetti)
+- `data/seed/` — dati del piano (settimane, traguardi, fasi, progetti, verifiche mensili)
+- Il piano integra il piano di studio da Gameplay Programmer (C++ e Unreal) nel primo anno; il metodo di studio è nella pagina privata `/dashboard/metodo/` (`src/lib/method.ts`)
 
 ## Come lavorare con Yuri
 
@@ -65,7 +66,7 @@ Tutti da lanciare dentro `gamedev-site/`.
 - `npm run test` — test Vitest
 - `npm run build` — build di produzione (output in `dist/`)
 - `npm run preview` — build + Worker locale con Wrangler, identico alla produzione (il bypass NON è attivo: le API private rispondono 401)
-- `npm run seed:generate` — rigenera `migrations/0002_seed.sql` da `data/seed/*.json`
+- `npm run seed:generate -- 0005_nome` — crea una migrazione che allinea il piano nel D1 a `data/seed/*.json` (settimane, traguardi, verifiche) senza toccare sessioni, diario, stati e note
 - `npm run cf-typegen` — rigenera `worker-configuration.d.ts` dopo modifiche a `wrangler.jsonc`
 - `npm run db:migrate:remote` — migrazioni sul D1 remoto (solo dopo conferma di Yuri)
 - `npm run deploy` — build + deploy (solo dopo conferma di Yuri)

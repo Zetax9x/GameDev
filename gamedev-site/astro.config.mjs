@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // Public URL of the site. Update it when the Worker name / custom domain is final.
-const SITE = process.env.SITE_URL ?? 'https://yuri-gamedev.workers.dev';
+const SITE = process.env.SITE_URL ?? 'https://yuri-gamedev.ccwmgvrvtr.workers.dev';
 
 export default defineConfig({
   site: SITE,

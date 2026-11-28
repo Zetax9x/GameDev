@@ -2,8 +2,8 @@
  * D1 data access. Every query uses prepare().bind(): never string concatenation
  * with user input.
  */
-import type { MilestoneFullRow, SessionRow, Settings, WeekRow } from '../types';
-import type { SessionInput } from '../validation';
+import type { CheckRow, JournalEntry, MilestoneFullRow, SessionRow, Settings, WeekRow } from '../types';
+import type { JournalInput, SessionInput } from '../validation';
 import { DEFAULT_START_DATE, DEFAULT_WEEKLY_TARGET } from '../content-data';
 
 export async function getSettings(db: D1Database): Promise<Settings> {
@@ -159,4 +159,72 @@ export async function updateMilestone(
       patch.is_public === undefined ? null : patch.is_public ? 1 : 0,
     )
     .first<MilestoneFullRow>();
+}
+
+// --- Journal -----------------------------------------------------------------
+
+const JOURNAL_COLS = 'date, topics, exercises, errors, unclear, autonomy, next_goal, updated_at';
+
+export async function listJournal(db: D1Database, from?: string, to?: string, limit = 400): Promise<JournalEntry[]> {
+  const { results } = await db
+    .prepare(
+      `SELECT ${JOURNAL_COLS} FROM journal
+       WHERE (?1 IS NULL OR date >= ?1) AND (?2 IS NULL OR date <= ?2)
+       ORDER BY date DESC LIMIT ?3`,
+    )
+    .bind(from ?? null, to ?? null, limit)
+    .all<JournalEntry>();
+  return results;
+}
+
+export async function getJournal(db: D1Database, date: string): Promise<JournalEntry | null> {
+  return db.prepare(`SELECT ${JOURNAL_COLS} FROM journal WHERE date = ?1`).bind(date).first<JournalEntry>();
+}
+
+export async function upsertJournal(db: D1Database, date: string, e: JournalInput): Promise<JournalEntry> {
+  const row = await db
+    .prepare(
+      `INSERT INTO journal (date, topics, exercises, errors, unclear, autonomy, next_goal, updated_at)
+       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, datetime('now'))
+       ON CONFLICT(date) DO UPDATE SET topics = excluded.topics, exercises = excluded.exercises,
+         errors = excluded.errors, unclear = excluded.unclear, autonomy = excluded.autonomy,
+         next_goal = excluded.next_goal, updated_at = excluded.updated_at
+       RETURNING ${JOURNAL_COLS}`,
+    )
+    .bind(
+      date,
+      e.topics ?? null,
+      e.exercises ?? null,
+      e.errors ?? null,
+      e.unclear ?? null,
+      e.autonomy ?? null,
+      e.next_goal ?? null,
+    )
+    .first<JournalEntry>();
+  if (!row) throw new Error('Upsert failed');
+  return row;
+}
+
+export async function deleteJournal(db: D1Database, date: string): Promise<boolean> {
+  const res = await db.prepare('DELETE FROM journal WHERE date = ?1').bind(date).run();
+  return (res.meta.changes ?? 0) > 0;
+}
+
+// --- Monthly checks ------------------------------------------------------------
+
+export async function listChecks(db: D1Database): Promise<CheckRow[]> {
+  const { results } = await db
+    .prepare('SELECT id, month, text, sort_order, done, done_date FROM checks ORDER BY sort_order')
+    .all<CheckRow>();
+  return results;
+}
+
+export async function updateCheck(db: D1Database, id: string, done: boolean, today: string): Promise<CheckRow | null> {
+  return db
+    .prepare(
+      `UPDATE checks SET done = ?2, done_date = CASE WHEN ?2 = 1 THEN COALESCE(done_date, ?3) ELSE NULL END
+       WHERE id = ?1 RETURNING id, month, text, sort_order, done, done_date`,
+    )
+    .bind(id, done ? 1 : 0, today)
+    .first<CheckRow>();
 }

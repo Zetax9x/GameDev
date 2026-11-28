@@ -70,3 +70,18 @@ export const rangeQuery = z.object({
 export const idParam = z.coerce.number().int().positive();
 export const weekParam = z.coerce.number().int().min(1).max(104);
 export const milestoneIdParam = z.string().regex(/^[a-z0-9_-]{1,32}$/i);
+
+export const journalInput = z
+  .object({
+    topics: optionalText(2000),
+    exercises: optionalText(2000),
+    errors: optionalText(2000),
+    unclear: optionalText(2000),
+    autonomy: z.coerce.number().int().min(1).max(5).nullish(),
+    next_goal: optionalText(1000),
+  })
+  .strict();
+export type JournalInput = z.infer<typeof journalInput>;
+
+export const checkPatch = z.object({ done: z.boolean() }).strict();
+export const checkIdParam = z.string().regex(/^v\d{2}-\d{1,2}$/);

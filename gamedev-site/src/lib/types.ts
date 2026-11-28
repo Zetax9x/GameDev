@@ -54,6 +54,30 @@ export interface MilestoneView extends Omit<MilestoneFullRow, 'is_public'> {
   suggest_late: boolean;
 }
 
+export interface JournalEntry {
+  date: string;
+  topics: string | null;
+  exercises: string | null;
+  errors: string | null;
+  unclear: string | null;
+  autonomy: number | null;
+  next_goal: string | null;
+  updated_at: string;
+}
+
+export interface CheckRow {
+  id: string;
+  month: number;
+  text: string;
+  sort_order: number;
+  done: number;
+  done_date: string | null;
+}
+
+export interface CheckView extends Omit<CheckRow, 'done'> {
+  done: boolean;
+}
+
 export interface Overview {
   today: string;
   settings: Settings;
@@ -68,4 +92,9 @@ export interface Overview {
   };
   chart: { n: number; hours: number }[];
   nextMilestones: MilestoneView[];
+  /** Day 1–7 of the current plan week (typical-week template), null outside the plan. */
+  planDay: number | null;
+  journalToday: boolean;
+  /** Month (1–12) of the first-year plan containing the current week, with its checks progress. */
+  month: { month: number; title: string; done: number; total: number } | null;
 }

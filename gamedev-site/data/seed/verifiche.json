@@ -1,0 +1,353 @@
+{
+  "_note": "Verifiche per avanzare del primo anno (piano da Gameplay Programmer). Un mese si chiude quando le verifiche sono superate, non quando finisce il calendario.",
+  "months": [
+    {
+      "month": 1,
+      "weeks": [
+        1,
+        4
+      ],
+      "title": "Imparare a programmare con autonomia",
+      "items": [
+        {
+          "id": "v01-1",
+          "text": "Scrivere un programma semplice senza seguire un tutorial"
+        },
+        {
+          "id": "v01-2",
+          "text": "Usare correttamente condizioni e cicli"
+        },
+        {
+          "id": "v01-3",
+          "text": "Creare e richiamare funzioni"
+        },
+        {
+          "id": "v01-4",
+          "text": "Individuare e correggere errori semplici"
+        },
+        {
+          "id": "v01-5",
+          "text": "Spiegare a parole cosa fa il mio codice"
+        }
+      ]
+    },
+    {
+      "month": 2,
+      "weeks": [
+        5,
+        9
+      ],
+      "title": "Funzioni, dati e ragionamento",
+      "items": [
+        {
+          "id": "v02-1",
+          "text": "Dividere un programma in funzioni sensate"
+        },
+        {
+          "id": "v02-2",
+          "text": "Usare std::vector senza confonderlo con un array a dimensione fissa"
+        },
+        {
+          "id": "v02-3",
+          "text": "Gestire gli input non validi nei casi affrontati"
+        },
+        {
+          "id": "v02-4",
+          "text": "Organizzare un piccolo programma in più file"
+        }
+      ]
+    },
+    {
+      "month": 3,
+      "weeks": [
+        10,
+        13
+      ],
+      "title": "Classi e OOP",
+      "items": [
+        {
+          "id": "v03-1",
+          "text": "Creare classi con responsabilità chiare"
+        },
+        {
+          "id": "v03-2",
+          "text": "Proteggere i dati con l'incapsulamento"
+        },
+        {
+          "id": "v03-3",
+          "text": "Usare i costruttori"
+        },
+        {
+          "id": "v03-4",
+          "text": "Spiegare perché una funzione appartiene a una determinata classe"
+        }
+      ]
+    },
+    {
+      "month": 4,
+      "weeks": [
+        14,
+        17
+      ],
+      "title": "Puntatori, riferimenti e memoria",
+      "items": [
+        {
+          "id": "v04-1",
+          "text": "Distinguere puntatore e riferimento"
+        },
+        {
+          "id": "v04-2",
+          "text": "Riconoscere un puntatore nullo o non valido"
+        },
+        {
+          "id": "v04-3",
+          "text": "Spiegare chi possiede un oggetto e per quanto tempo vive"
+        },
+        {
+          "id": "v04-4",
+          "text": "Usare std::unique_ptr in un esempio semplice"
+        }
+      ]
+    },
+    {
+      "month": 5,
+      "weeks": [
+        18,
+        22
+      ],
+      "title": "STL, algoritmi e qualità del codice",
+      "items": [
+        {
+          "id": "v05-1",
+          "text": "Scegliere il contenitore STL giusto per ogni caso"
+        },
+        {
+          "id": "v05-2",
+          "text": "Usare algoritmi e lambda al posto di cicli scritti a mano"
+        },
+        {
+          "id": "v05-3",
+          "text": "Gestire gli errori con std::optional o le eccezioni"
+        },
+        {
+          "id": "v05-4",
+          "text": "Usare il debugger e leggere i warning del compilatore"
+        },
+        {
+          "id": "v05-5",
+          "text": "Completare il Game Data Manager"
+        }
+      ]
+    },
+    {
+      "month": 6,
+      "weeks": [
+        23,
+        26
+      ],
+      "title": "Algoritmi, matematica e architettura",
+      "items": [
+        {
+          "id": "v06-1",
+          "text": "Risolvere problemi con la STL"
+        },
+        {
+          "id": "v06-2",
+          "text": "Spiegare la complessità delle operazioni comuni"
+        },
+        {
+          "id": "v06-3",
+          "text": "Implementare una macchina a stati"
+        },
+        {
+          "id": "v06-4",
+          "text": "Usare vettori e distanze in un esempio"
+        },
+        {
+          "id": "v06-5",
+          "text": "Organizzare il codice in componenti con responsabilità separate"
+        }
+      ]
+    },
+    {
+      "month": 7,
+      "weeks": [
+        27,
+        30
+      ],
+      "title": "Primi passi con Unreal",
+      "items": [
+        {
+          "id": "v07-1",
+          "text": "Creare un Actor personalizzato con componenti in C++"
+        },
+        {
+          "id": "v07-2",
+          "text": "Esporre proprietà e funzioni all'editor e ai Blueprint"
+        },
+        {
+          "id": "v07-3",
+          "text": "Usare log e debugger in Unreal"
+        },
+        {
+          "id": "v07-4",
+          "text": "Spiegare la differenza tra C++ standard e C++ di Unreal"
+        },
+        {
+          "id": "v07-5",
+          "text": "Completare la scena interattiva"
+        }
+      ]
+    },
+    {
+      "month": 8,
+      "weeks": [
+        31,
+        35
+      ],
+      "title": "Personaggio, input e movimento",
+      "items": [
+        {
+          "id": "v08-1",
+          "text": "Personaggio con Enhanced Input, corsa e salto"
+        },
+        {
+          "id": "v08-2",
+          "text": "Camera con spring arm"
+        },
+        {
+          "id": "v08-3",
+          "text": "Interazioni tramite line trace"
+        },
+        {
+          "id": "v08-4",
+          "text": "Componente di salute e danno riutilizzabile"
+        },
+        {
+          "id": "v08-5",
+          "text": "Completare Gameplay Prototype 1"
+        }
+      ]
+    },
+    {
+      "month": 9,
+      "weeks": [
+        36,
+        39
+      ],
+      "title": "Combattimento, armi e inventario",
+      "items": [
+        {
+          "id": "v09-1",
+          "text": "Aggiungere un'arma senza riscrivere il sistema"
+        },
+        {
+          "id": "v09-2",
+          "text": "Munizioni, ricarica e cadenza di fuoco"
+        },
+        {
+          "id": "v09-3",
+          "text": "Dati separati dalla logica con i Data Asset"
+        },
+        {
+          "id": "v09-4",
+          "text": "Interfaccia per le interazioni generiche"
+        },
+        {
+          "id": "v09-5",
+          "text": "Completare il combattimento con due armi e un nemico"
+        }
+      ]
+    },
+    {
+      "month": 10,
+      "weeks": [
+        40,
+        43
+      ],
+      "title": "AI e comportamento dei nemici",
+      "items": [
+        {
+          "id": "v10-1",
+          "text": "AI Controller con Behavior Tree e Blackboard"
+        },
+        {
+          "id": "v10-2",
+          "text": "Percezione e line of sight"
+        },
+        {
+          "id": "v10-3",
+          "text": "Gestire la perdita del bersaglio"
+        },
+        {
+          "id": "v10-4",
+          "text": "Separare decisione e azione"
+        },
+        {
+          "id": "v10-5",
+          "text": "Nemico completo che torna alla pattuglia"
+        }
+      ]
+    },
+    {
+      "month": 11,
+      "weeks": [
+        44,
+        48
+      ],
+      "title": "Architettura, performance e rifinitura",
+      "items": [
+        {
+          "id": "v11-1",
+          "text": "Misurare una scena prima e dopo un'ottimizzazione"
+        },
+        {
+          "id": "v11-2",
+          "text": "Eliminare i Tick non necessari"
+        },
+        {
+          "id": "v11-3",
+          "text": "Riprodurre e correggere bug con istruzioni scritte"
+        },
+        {
+          "id": "v11-4",
+          "text": "Avere una checklist di regressione"
+        },
+        {
+          "id": "v11-5",
+          "text": "Avere una lista dei problemi noti"
+        }
+      ]
+    },
+    {
+      "month": 12,
+      "weeks": [
+        49,
+        52
+      ],
+      "title": "Progetto portfolio",
+      "items": [
+        {
+          "id": "v12-1",
+          "text": "Gioco breve con personaggio, interazione, salute, arma, nemico, UI e obiettivo"
+        },
+        {
+          "id": "v12-2",
+          "text": "README in inglese con istruzioni per compilare ed eseguire"
+        },
+        {
+          "id": "v12-3",
+          "text": "Video dimostrativo breve"
+        },
+        {
+          "id": "v12-4",
+          "text": "Elenco delle scelte tecniche e dei limiti conosciuti"
+        },
+        {
+          "id": "v12-5",
+          "text": "Un'altra persona capisce cosa fa il progetto e come avviarlo"
+        }
+      ]
+    }
+  ]
+}

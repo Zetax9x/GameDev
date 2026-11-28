@@ -7,13 +7,14 @@ import ThemeToggle from '../components/layout/ThemeToggle.astro';
 
 interface Props {
   title: string;
-  active: 'panoramica' | 'registra' | 'settimane' | 'traguardi' | 'impostazioni';
+  active: 'panoramica' | 'registra' | 'diario' | 'settimane' | 'traguardi' | 'verifiche' | 'metodo' | 'impostazioni';
 }
 const { title, active } = Astro.props;
 
 const nav = [
   { id: 'panoramica', href: '/dashboard/', label: 'Panoramica', icon: 'M3 12l9-8 9 8M5 10v10h14V10' },
   { id: 'registra', href: '/dashboard/registra/', label: 'Registra', icon: 'M12 5v14M5 12h14' },
+  { id: 'diario', href: '/dashboard/diario/', label: 'Diario', icon: 'M6 3h11a2 2 0 0 1 2 2v16l-3-2-3 2-3-2-3 2V5a2 2 0 0 1 2-2zM9 8h6M9 12h6' },
   { id: 'settimane', href: '/dashboard/settimane/', label: 'Settimane', icon: 'M4 6h16M4 12h16M4 18h10' },
   { id: 'traguardi', href: '/dashboard/traguardi/', label: 'Traguardi', icon: 'M5 21V4h11l-1.5 4L16 12H5' },
 ] as const;
@@ -36,12 +37,17 @@ const nav = [
       Vai al contenuto
     </a>
     <header class="sticky top-0 z-20 border-b border-border bg-bg/95 backdrop-blur">
-      <div class="mx-auto flex h-14 max-w-xl items-center justify-between gap-3 px-4 md:max-w-3xl">
+      <div class="mx-auto flex h-14 max-w-xl items-center justify-between gap-3 px-4 md:max-w-4xl">
         <a href="/dashboard/" class="font-display font-semibold no-underline">Dashboard</a>
         <nav aria-label="Area privata" class="hidden md:block">
           <ul class="flex gap-1 text-sm">
             {
-              [...nav, { id: 'impostazioni', href: '/dashboard/impostazioni/', label: 'Impostazioni' }].map((item) => (
+              [
+                ...nav,
+                { id: 'verifiche', href: '/dashboard/verifiche/', label: 'Verifiche' },
+                { id: 'metodo', href: '/dashboard/metodo/', label: 'Metodo' },
+                { id: 'impostazioni', href: '/dashboard/impostazioni/', label: 'Impostazioni' },
+              ].map((item) => (
                 <li>
                   <a
                     href={item.href}
@@ -72,7 +78,7 @@ const nav = [
       </div>
     </header>
 
-    <main id="main" class="mx-auto max-w-xl px-4 pt-6 pb-28 md:max-w-3xl md:pb-12">
+    <main id="main" class="mx-auto max-w-xl px-4 pt-6 pb-28 md:max-w-4xl md:pb-12">
       <h1 class="mb-5 text-xl">{title}</h1>
       <slot />
       <noscript><p class="text-danger">La dashboard richiede JavaScript.</p></noscript>
@@ -80,7 +86,7 @@ const nav = [
 
     <!-- Bottom navigation on phones, one-handed. -->
     <nav aria-label="Area privata" class="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-surface pb-[env(safe-area-inset-bottom)] md:hidden">
-      <ul class="mx-auto grid h-16 max-w-xl grid-cols-4">
+      <ul class="mx-auto grid h-16 max-w-xl grid-cols-5">
         {
           nav.map((item) => (
             <li>

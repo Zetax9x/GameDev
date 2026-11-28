@@ -15,11 +15,10 @@ I can write variables, conditions and loops, and not much more. The goal, on the
 
 ## The plan
 
-- **Phase 1, until March 2027:** programming fundamentals with CS50x, and C++ with learncpp.
-- **Phase 2, in parallel:** the math games need, from vectors to matrices.
-- **Phase 3:** my first 2D games in C++ with raylib.
-- **Phase 4:** 3D, a small OpenGL engine and Unreal Engine.
-- **Phase 5:** portfolio projects and first job applications, by the end of 2028.
+- **First six months:** C++ basics in the terminal, then classes, pointers, memory and the standard library. A small project every month, like an inventory system or turn-based combat.
+- **From June 2027:** Unreal Engine 5 in C++: character, input, weapons, AI enemies.
+- **End of 2027:** a first portfolio project, small but complete.
+- **2028:** deep dives (2D games without an engine, OpenGL graphics), portfolio work and first job applications.
 
 ## Why a devlog
 
@@ -27,6 +26,6 @@ Two reasons. Writing down what I learn forces me to really understand it. And in
 
 ## This week
 
-Setting up my tools, creating my GitHub account and starting CS50x Lecture 0.
+Setting up my tools (VS Code, a C++ compiler, Git) and writing my first program: a character sheet in the terminal.
 
 See you in the next post.

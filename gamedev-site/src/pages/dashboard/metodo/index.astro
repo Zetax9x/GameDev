@@ -1,0 +1,139 @@
+---
+// Private reference page: the study method from the Gameplay Programmer plan.
+// Static content behind Cloudflare Access (no personal data).
+import DashboardLayout from '../../../layouts/DashboardLayout.astro';
+import { CHECK_LEVELS, DAILY_BLOCKS, WEEK_TEMPLATE } from '../../../lib/method';
+
+const total = DAILY_BLOCKS.reduce((s, b) => s + b.minutes, 0);
+---
+<DashboardLayout title="Il metodo" active="metodo">
+  <div class="space-y-5">
+    <section class="card p-5">
+      <h2 class="text-base">Principio guida</h2>
+      <p class="mt-2">L'obiettivo non è imparare a usare un motore: è imparare a programmare gameplay.</p>
+      <p class="mt-2 text-sm text-muted">
+        Restano: ragionamento logico, C++, strutture dati e algoritmi, gestione della memoria, architettura, debugging, leggere codice
+        altrui, trasformare una specifica di gameplay in un sistema funzionante.
+      </p>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Giornata tipo ({total / 60} ore)</h2>
+      <ul class="mt-3 divide-y divide-border">
+        {
+          DAILY_BLOCKS.map((b) => (
+            <li class="flex items-start justify-between gap-3 py-2">
+              <span>
+                <span class="block">{b.label}</span>
+                <span class="block text-sm text-muted">{b.what}</span>
+              </span>
+              <span class="pill shrink-0 text-muted">{b.minutes} min</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-3 text-sm text-muted">
+        Pausa breve ogni 50–60 minuti. Se un esercizio richiede più tempo, riduci la teoria del giorno dopo: conta la comprensione, non il
+        calendario.
+      </p>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Settimana tipo</h2>
+      <ol class="mt-3 space-y-2">
+        {
+          WEEK_TEMPLATE.map((d, i) => (
+            <li class="flex gap-3">
+              <span class="font-mono text-sm text-accent">G{i + 1}</span>
+              <span>{d}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="mt-3 text-sm text-muted">Una giornata di riposo non è tempo perso: il sovraccarico riduce la capacità di imparare.</p>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">I quattro livelli di verifica</h2>
+      <ol class="mt-3 space-y-2">
+        {
+          CHECK_LEVELS.map((l) => (
+            <li>
+              <span class="font-mono text-sm text-accent">{l.level}</span> <strong class="font-medium">{l.name}</strong>
+              <span class="block text-sm text-muted">{l.proof}</span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="mt-3 text-sm text-muted">Un argomento non è imparato solo perché il codice funziona copiando un esempio.</p>
+      <a href="/dashboard/verifiche/" class="btn mt-4 w-full">Apri le verifiche del mese</a>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Metodo per ogni esercizio</h2>
+      <ol class="mt-3 list-decimal space-y-1 pl-5">
+        <li>Leggere il codice senza modificarlo.</li>
+        <li>Individuare cosa funziona e cosa no.</li>
+        <li>Spiegare gli errori, distinguendo compilazione e logica.</li>
+        <li>Proporre la correzione minima.</li>
+        <li>Mostrare una versione migliorata solo dopo aver chiarito il motivo.</li>
+        <li>Fare una piccola variante per verificare il concetto.</li>
+      </ol>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Usare l'AI senza diventarne dipendente</h2>
+      <ol class="mt-3 list-decimal space-y-1 pl-5">
+        <li>Provare l'esercizio da solo prima di chiedere la soluzione.</li>
+        <li>Quando ricevi una correzione, chiedere perché funziona.</li>
+        <li>Non copiare interi sistemi che non sai spiegare.</li>
+        <li>Dopo una soluzione guidata, rifare l'esercizio da un file vuoto.</li>
+        <li>Chiedere varianti dello stesso problema.</li>
+        <li>Usare l'AI per interpretare gli errori del compilatore, ma verificare le correzioni.</li>
+        <li>Un progetto non è finito se non riesci a modificarlo senza assistenza.</li>
+      </ol>
+      <h3 class="mt-4 text-sm font-medium">Per ogni progetto importante devi saper spiegare</h3>
+      <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-muted">
+        <li>come sono organizzati i file e quali sono le classi principali;</li>
+        <li>chi possiede i dati e come vengono gestiti gli errori;</li>
+        <li>i limiti conosciuti e le alternative scartate.</li>
+      </ul>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Compilare i primi esercizi</h2>
+      <pre class="mt-3 overflow-x-auto rounded-[10px] border border-border bg-surface-2 p-3 font-mono text-xs"><code>g++ -std=c++20 -Wall -Wextra -pedantic main.cpp -o gioco.exe
+.\gioco.exe</code></pre>
+      <p class="mt-2 text-sm text-muted">Se <code class="font-mono">g++</code> non viene riconosciuto, il compilatore non è installato o non è nel PATH.</p>
+      <h3 class="mt-4 text-sm font-medium">Struttura delle cartelle</h3>
+      <pre class="mt-2 overflow-x-auto rounded-[10px] border border-border bg-surface-2 p-3 font-mono text-xs"><code>GameProgramming/
+├── Lezione01/  (main.cpp, README.md)
+├── Progetti/   (CharacterStatusSystem, InventorySystem, …)
+└── Appunti/    (Cpp.md, ErroriComuni.md, DiarioStudio.md)</code></pre>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Godot e Collasso</h2>
+      <ul class="mt-3 list-disc space-y-1 pl-5 text-sm">
+        <li>Primi sei mesi: piccoli esperimenti, una funzionalità alla volta, scelte documentate.</li>
+        <li>Dal settimo mese: una sessione a settimana, se gli obiettivi C++ sono rispettati.</li>
+        <li>Rifare in Godot una meccanica studiata in Unreal, quando ha senso, e confrontare i motori.</li>
+        <li>Il lavoro sugli asset in Blender non sostituisce lo studio della programmazione.</li>
+      </ul>
+    </section>
+
+    <section class="card p-5">
+      <h2 class="text-base">Aspettative realistiche</h2>
+      <ul class="mt-3 space-y-1 text-sm">
+        <li><span class="font-mono text-muted">0–6 mesi</span> · basi C++ e programmi autonomi</li>
+        <li><span class="font-mono text-muted">6–12 mesi</span> · prime competenze in Unreal e portfolio iniziale</li>
+        <li><span class="font-mono text-muted">12–24 mesi</span> · progetti più solidi, collaborazione, colloqui</li>
+        <li><span class="font-mono text-muted">2–5 anni</span> · candidature credibili a ruoli junior</li>
+      </ul>
+      <p class="mt-3 text-sm text-muted">
+        Rockstar Games è un obiettivo ambizioso, non un risultato garantito. Prima viene diventare un programmatore capace di contribuire a
+        un team. Meglio tre progetti piccoli, completi e spiegabili che dieci prototipi incompleti.
+      </p>
+    </section>
+  </div>
+</DashboardLayout>

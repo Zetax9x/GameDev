@@ -4,12 +4,14 @@ import {
   dayStreak,
   isPlanCompleted,
   minutesByWeek,
+  planDay,
   round1,
   totalHours,
   weekRange,
   TOTAL_WEEKS,
 } from './plan';
-import type { MilestoneFullRow, MilestoneView, Overview, SessionRow, Settings, WeekRow, WeekView } from './types';
+import type { CheckRow, CheckView, MilestoneFullRow, MilestoneView, Overview, SessionRow, Settings, WeekRow, WeekView } from './types';
+import { monthForWeek } from './checks-data';
 
 export function toWeekViews(weeks: readonly WeekRow[], sessions: readonly Pick<SessionRow, 'date' | 'minutes'>[], settings: Settings): WeekView[] {
   const byWeek = minutesByWeek(settings.start_date, sessions);
@@ -33,6 +35,8 @@ export function buildOverview(input: {
   weeks: readonly WeekRow[];
   sessions: readonly Pick<SessionRow, 'date' | 'minutes'>[];
   milestones: readonly MilestoneFullRow[];
+  checks?: readonly CheckRow[];
+  journalToday?: boolean;
 }): Overview {
   const { today, settings } = input;
   const views = toWeekViews(input.weeks, input.sessions, settings);
@@ -72,5 +76,20 @@ export function buildOverview(input: {
     },
     chart,
     nextMilestones,
+    planDay: planDay(settings.start_date, today),
+    journalToday: input.journalToday ?? false,
+    month: monthSummary(n, input.checks ?? []),
   };
+}
+
+function monthSummary(week: number, checks: readonly CheckRow[]): Overview['month'] {
+  // Before the start, show month 1: that's what to prepare for.
+  const month = monthForWeek(Math.max(1, week));
+  if (!month) return null;
+  const items = checks.filter((c) => c.month === month.month);
+  return { month: month.month, title: month.title, done: items.filter((c) => c.done === 1).length, total: items.length };
+}
+
+export function toCheckView(c: CheckRow): CheckView {
+  return { ...c, done: c.done === 1 };
 }

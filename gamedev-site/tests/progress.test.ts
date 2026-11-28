@@ -23,7 +23,7 @@ describe('buildPublicProgress', () => {
     expect(out).toEqual({
       currentWeek: 12,
       totalWeeks: 104,
-      currentPhaseId: 'f1',
+      currentPhaseId: 'f3',
       milestones: { reached: 1, total: 3 },
       publicMilestones: [
         { id: 'm01', status: 'raggiunto', reached_date: '2026-12-12' },

@@ -3,7 +3,6 @@
   "site.name": "Yuri Squarcia",
   "site.subtitle": "From beginner to game programmer, one commit at a time",
   "site.description": "The journey of Yuri Squarcia from beginner to C++ game programmer: devlog, projects and roadmap.",
-
   "nav.home": "Home",
   "nav.devlog": "Devlog",
   "nav.projects": "Projects",
@@ -13,15 +12,12 @@
   "nav.menu": "Menu",
   "nav.close": "Close menu",
   "nav.skip": "Skip to content",
-
   "lang.switch": "Italiano",
   "lang.switchLabel": "Leggi questa pagina in italiano",
   "theme.toggle": "Toggle light/dark theme",
-
   "footer.disclaimer": "Personal website. I'm not affiliated with Rockstar Games or Take-Two Interactive; their names appear only to describe my goal.",
   "footer.rss": "RSS feed",
   "footer.links": "Links",
-
   "home.intro": "I'm learning to program video games in C++, starting from the basics. The goal is long and specific: to work at Rockstar Games one day. This is where I document every step: what I study, what I build, and what I get wrong.",
   "home.ctaDevlog": "Read the devlog",
   "home.ctaRoadmap": "See the roadmap",
@@ -38,7 +34,6 @@
   "home.fullRoadmap": "Full roadmap",
   "home.noPosts": "The first post is on its way.",
   "home.hoursStudied": "hours studied",
-
   "devlog.title": "Devlog",
   "devlog.intro": "Notes from the journey: what I study, what I build, what goes wrong.",
   "devlog.readingTime": "min read",
@@ -52,7 +47,6 @@
   "devlog.back": "Back to the devlog",
   "devlog.relatedProject": "Related project",
   "devlog.published": "Published on",
-
   "projects.title": "Projects",
   "projects.intro": "Every game and tool I build along the way, from console programs to 3D.",
   "projects.filterStatus": "Status",
@@ -74,9 +68,8 @@
   "projects.back": "Back to projects",
   "projects.placeholderAlt": "Placeholder artwork for",
   "projects.coverAlt": "Screenshot of",
-
   "roadmap.title": "Roadmap",
-  "roadmap.intro": "The plan has five study phases, followed by a first industry job. Dates are estimates and move if the plan shifts.",
+  "roadmap.intro": "The first year follows a Gameplay Programmer plan: modern C++, then Unreal Engine 5 and a portfolio project. The second year goes deeper into 2D games and 3D graphics and prepares the portfolio and job applications. Dates are estimates and move if the plan shifts.",
   "roadmap.current": "Current phase",
   "roadmap.parallel": "In parallel",
   "roadmap.gate": "Gate",
@@ -89,15 +82,14 @@
   "roadmap.status.in_ritardo": "Late",
   "roadmap.weeksRange": "Weeks",
   "roadmap.note": "Dates are estimates and update if the plan shifts.",
-
   "about.title": "About",
-  "about.bio1": "I'm Yuri, based in Ascoli Piceno, Italy. I've built websites and small tools before, but games are what I really care about, and I want to understand how they're made from the inside.",
+  "about.bio1": "I'm Yuri, based in Ascoli Piceno, Italy. I have a diploma in telecommunications, I've built websites and small tools, and I experiment with Godot and Blender, but games are what I really care about: I want to understand how they're made from the inside.",
   "about.job": "I work as an ambulance driver and EMT in Italy's 118 emergency service: long shifts, which I now also use to study.",
-  "about.bio2": "My plan: two years of C++, game math and graphics engines, then a first job in the industry, and later on, Rockstar Games.",
+  "about.bio2": "My plan: an intensive first year to become a Gameplay Programmer, with modern C++ and then Unreal Engine 5; a second year of deep dives (2D games without an engine, OpenGL graphics), portfolio work and first applications. Then a first job in the industry, and later on, Rockstar Games.",
   "about.skills": "Current skills",
-  "about.skillsList": "C++ (learning), HTML/CSS/JavaScript, React, PHP, Python (basic), Git, Linux",
+  "about.skillsList": "C++ (learning), Godot, Blender, HTML/CSS/JavaScript, React, PHP, Python (basic), Git, Linux",
   "about.tools": "Tools",
-  "about.toolsList": "Visual Studio, VS Code, Git and GitHub, raylib, Linux VPS",
+  "about.toolsList": "VS Code, g++, Git and GitHub, Godot, Blender; Unreal Engine 5 from the second half of the year",
   "about.links": "Links",
   "about.contact": "Contact",
   "about.emailLabel": "Email",
@@ -105,11 +97,9 @@
   "about.cv": "CV",
   "about.cvSoon": "An English CV will be available here later on.",
   "about.disclaimerTitle": "Disclaimer",
-
   "notFound.title": "Page not found",
   "notFound.text": "This road leads nowhere. Let's go back.",
   "notFound.home": "Back to home",
-
   "rss.title": "Yuri Squarcia — Devlog",
   "rss.description": "Devlog of a game programmer in the making."
 }

@@ -173,3 +173,10 @@ export function phaseTimeState(phase: PhaseLike, n: number): PhaseTimeState {
   if (n >= from) return 'current';
   return 'future';
 }
+
+/** Day 1–7 of the plan week containing `today` (weeks start on start_date's weekday), or null outside the plan. */
+export function planDay(startDate: string, today: string): number | null {
+  const diff = daysBetween(startDate, today);
+  if (diff < 0 || isPlanCompleted(startDate, today)) return null;
+  return (diff % 7) + 1;
+}

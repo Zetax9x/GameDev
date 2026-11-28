@@ -4,6 +4,7 @@ import { useApi } from './useApi';
 import { Card, ErrorBox, Loading, ProgressBar, Stat, StatusPill } from './ui';
 import WeeklyChart from './WeeklyChart';
 import { hours, longDate, shortDate } from './format';
+import { WEEK_TEMPLATE } from '../../lib/method';
 
 export default function Overview() {
   const { data, error, loading, reload } = useApi<OverviewData>('/api/private/overview');
@@ -55,6 +56,45 @@ export default function Overview() {
       <a href="/dashboard/registra/" className="btn btn-primary w-full text-lg" style={{ minHeight: 56 }}>
         + Registra sessione
       </a>
+
+      <Card>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="font-mono text-xs tracking-wider text-muted uppercase">
+              Oggi{data.planDay ? ` · giorno ${data.planDay} di 7` : ''}
+            </p>
+            <p className="mt-1">{data.planDay ? WEEK_TEMPLATE[data.planDay - 1] : 'Prepara gli strumenti: VS Code, compilatore, Git.'}</p>
+          </div>
+          <a href="/dashboard/metodo/" className="link shrink-0 text-sm">
+            Metodo
+          </a>
+        </div>
+        <a
+          href="/dashboard/diario/"
+          className={`mt-4 flex min-h-12 items-center justify-between rounded-[10px] border px-4 no-underline ${
+            data.journalToday ? 'border-border text-muted' : 'border-accent-2 text-accent-2'
+          }`}
+        >
+          <span>{data.journalToday ? 'Diario di oggi compilato' : 'Compila il diario di oggi'}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+        {data.month && (
+          <a href="/dashboard/verifiche/" className="mt-3 block rounded-[10px] border border-border px-4 py-3 no-underline">
+            <span className="flex items-baseline justify-between gap-3">
+              <span>
+                <span className="block font-mono text-xs text-muted">Mese {data.month.month} · verifiche per avanzare</span>
+                <span className="block">{data.month.title}</span>
+              </span>
+              <span className="font-mono text-sm">
+                {data.month.done}/{data.month.total}
+              </span>
+            </span>
+            <span className="mt-2 block">
+              <ProgressBar value={data.month.done} max={data.month.total} label="Verifiche del mese superate" />
+            </span>
+          </a>
+        )}
+      </Card>
 
       <div className="grid grid-cols-2 gap-3">
         <Stat label="Ore totali" value={hours(data.totals.hours)} />

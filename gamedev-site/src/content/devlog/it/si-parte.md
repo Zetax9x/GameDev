@@ -15,11 +15,10 @@ So scrivere variabili, condizioni e cicli, e poco altro. L'obiettivo invece è g
 
 ## Il piano
 
-- **Fase 1, fino a marzo 2027:** fondamenti di programmazione con CS50x e C++ con learncpp.
-- **Fase 2, in parallelo:** la matematica che serve ai giochi, dai vettori alle matrici.
-- **Fase 3:** i primi giochi 2D in C++ con raylib.
-- **Fase 4:** il 3D, un piccolo motore in OpenGL e Unreal Engine.
-- **Fase 5:** progetti da portfolio e prime candidature, a fine 2028.
+- **Primi sei mesi:** le basi del C++ da terminale, poi classi, puntatori, memoria e la libreria standard. Ogni mese un piccolo progetto, come un sistema di inventario o un combattimento a turni.
+- **Da giugno 2027:** Unreal Engine 5 in C++: personaggio, input, armi, nemici con intelligenza artificiale.
+- **Fine 2027:** un primo progetto portfolio, piccolo ma completo.
+- **2028:** approfondimenti (giochi 2D senza motore, grafica in OpenGL), portfolio e prime candidature.
 
 ## Perché un devlog
 
@@ -27,6 +26,6 @@ Per due motivi. Scrivere cosa imparo mi obbliga a capirlo davvero. E tra due ann
 
 ## Questa settimana
 
-Installo gli strumenti, apro l'account GitHub e comincio la Lezione 0 di CS50x.
+Preparo gli strumenti (VS Code, un compilatore C++, Git) e scrivo il primo programma: una scheda personaggio da terminale.
 
 Ci vediamo al prossimo post.

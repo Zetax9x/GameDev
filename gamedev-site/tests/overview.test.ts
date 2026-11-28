@@ -59,6 +59,20 @@ describe('buildOverview', () => {
     expect(o.chart.map((c) => c.n)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
   });
 
+  it('reports the plan day, journal and checks of the current month', () => {
+    const checks = [
+      { id: 'v01-1', month: 1, text: 'a', sort_order: 100, done: 1, done_date: '2026-12-01' },
+      { id: 'v01-2', month: 1, text: 'b', sort_order: 101, done: 0, done_date: null },
+      { id: 'v02-1', month: 2, text: 'c', sort_order: 200, done: 1, done_date: null },
+    ];
+    const o = buildOverview({ today: '2026-12-02', settings, weeks, sessions, milestones, checks, journalToday: true });
+    expect(o.planDay).toBe(3);
+    expect(o.journalToday).toBe(true);
+    expect(o.month).toMatchObject({ month: 1, done: 1, total: 2 });
+    expect(buildOverview({ today: '2028-01-10', settings, weeks, sessions: [], milestones }).month).toBeNull();
+    expect(buildOverview({ today: '2026-11-20', settings, weeks, sessions: [], milestones, checks }).month?.month).toBe(1);
+  });
+
   it('shows the last 12 weeks later in the plan', () => {
     const o = buildOverview({ today: '2027-06-01', settings, weeks, sessions: [], milestones });
     expect(o.chart.at(-1)?.n).toBe(27);
